@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NaVVA · From Narratives of Value to Valuable Algorithms</title>
+<meta name="description" content="A KCL × BFI doctoral project on a decade of UK television advertising, 2016–2026, studied with computational methods and semiotic close reading.">
+<meta property="og:title" content="NaVVA · From Narratives of Value to Valuable Algorithms">
+<meta property="og:description" content="A decade of promotional screen culture in the UK, seen by machine. KCL × BFI AHRC Collaborative Doctoral Partnership.">
+<meta property="og:image" content="https://navva-project.github.io/assets/navva_card.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+  :root {
+    --paper: #f3f1ea; --surface: #fbfaf5; --surface-2: #e9e6db;
+    --ink: #1c2420; --ink-soft: #55615a; --ink-3: #7a857e;
+    --line: #d6d2c4; --line-strong: #b7b3a3;
+    --accent: #2f6b54; --brass: #8f5e1c;
+    --archive: #66733b; --machine: #2d6692; --human: #8d3f70;
+    /* the screen stays a screen in both themes */
+    --scr-bg: #080c0b; --scr-ink: #e5eee7; --scr-soft: #a9b8ae; --scr-line: #27352e;
+    --scr-accent: #a6dfbf; --scr-brass: #d3a54f; --scr-rec: #f06a61; --scr-frame: #284438;
+    --sans: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+    --serif: "Source Serif 4", Georgia, serif;
+    --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #0b100e; --surface: #111714; --surface-2: #18201c;
+      --ink: #e5eee7; --ink-soft: #a9b8ae; --ink-3: #82968a;
+      --line: #27352e; --line-strong: #486054;
+      --accent: #78b49a; --brass: #d3a54f;
+      --archive: #b9c46e; --machine: #55b5d9; --human: #dd7cba;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #0b100e; --surface: #111714; --surface-2: #18201c;
+    --ink: #e5eee7; --ink-soft: #a9b8ae; --ink-3: #82968a;
+    --line: #27352e; --line-strong: #486054;
+    --accent: #78b49a; --brass: #d3a54f;
+    --archive: #b9c46e; --machine: #55b5d9; --human: #dd7cba;
+  }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 60rem; margin: 0 auto; padding-inline: 20px; }
+  h1, h2 { font-family: var(--serif); font-weight: 400; text-wrap: balance; margin: 0; }
+  h2 { font-size: clamp(1.35rem, 3vw, 1.7rem); line-height: 1.2; color: var(--accent); }
+  h3 { font-size: 1rem; font-weight: 600; margin: 0 0 6px; }
+  p { margin: 0; }
+  a { color: inherit; text-decoration-color: var(--line-strong); text-underline-offset: 3px; }
+  a:hover { text-decoration-color: var(--brass); }
+  :focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+  .label { font: 500 0.7rem var(--mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); }
+
+  .topbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-block: 14px; }
+  .pill { font: 500 0.72rem var(--mono); letter-spacing: 0.06em; border: 1px solid var(--line-strong); background: transparent; color: var(--ink-soft); border-radius: 2px; padding: 4px 10px; cursor: pointer; }
+
+  /* screen */
+  .screen { position: relative; background: var(--scr-bg); color: var(--scr-ink); border: 4px solid var(--scr-frame); overflow: hidden;
+    background-image: repeating-linear-gradient(0deg, rgba(126,255,197,0.045) 0, rgba(126,255,197,0.045) 1px, transparent 1px, transparent 3px), radial-gradient(ellipse at 50% 0%, #17251f 0%, #080c0b 70%);
+    box-shadow: inset 0 0 72px rgba(0,0,0,0.62); }
+  .osd { display: flex; justify-content: space-between; gap: 12px; padding: 16px 22px 0; font: 500 0.72rem var(--mono); letter-spacing: 0.12em; }
+  .osd .rec { color: var(--scr-rec); } .osd .tc { color: var(--scr-brass); font-variant-numeric: tabular-nums; }
+  .rec i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: currentColor; margin-right: 8px; animation: blink 1.6s steps(2, start) infinite; }
+  @keyframes blink { to { visibility: hidden; } }
+  @media (prefers-reduced-motion: reduce) { .rec i { animation: none; } }
+  .title { padding: clamp(28px, 6vw, 56px) 22px 8px; border-left: 4px double var(--scr-accent); margin: 22px 0 0 22px; }
+  .title .label { color: var(--scr-soft); }
+  h1 { font-size: clamp(1.9rem, 5.4vw, 3.3rem); line-height: 1.08; color: var(--scr-accent); text-shadow: 0 0 16px rgba(116,226,166,0.22); margin: 14px 0 12px; }
+  .dek { font-family: var(--serif); font-size: clamp(1.05rem, 2.2vw, 1.3rem); color: var(--scr-ink); max-width: 34rem; }
+  .strip { padding: 26px 22px 6px; }
+  .strip svg { width: 100%; height: auto; display: block; }
+  .strip text { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; fill: var(--scr-soft); }
+  .bars { display: flex; height: 10px; margin-top: 18px; }
+  .bars span { flex: 1; }
+
+  section { padding-top: 52px; }
+  .sec-head { border-left: 3px double var(--accent); padding-left: 14px; margin-bottom: 18px; }
+  .sec-head .label { color: var(--brass); }
+  .prose p { max-width: 42rem; }
+  .prose p + p { margin-top: 14px; }
+  .rq { font-family: var(--serif); font-size: clamp(1.15rem, 2.6vw, 1.45rem); line-height: 1.4; max-width: 44rem; border-top: 1px solid var(--brass); border-bottom: 1px solid var(--line); padding: 18px 0; margin: 0; }
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr)); gap: 14px; }
+  .step { background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--c); padding: 16px; }
+  .step .label { color: var(--c); display: block; margin-bottom: 8px; }
+  .step p { font-size: 0.93rem; color: var(--ink-soft); }
+  .note { font-size: 0.88rem; color: var(--ink-soft); max-width: 42rem; margin-top: 16px; }
+  .people { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(210px, 100%), 1fr)); gap: 0; border: 1px solid var(--line); border-top: 3px solid var(--accent); background: var(--surface); }
+  .person { padding: 14px 16px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 0 -1px -1px 0; }
+  .person b { display: block; font-weight: 600; }
+  .person span { font-size: 0.85rem; color: var(--ink-soft); }
+  footer { margin-top: 64px; border-top: 1px solid var(--line); padding-block: 22px 40px; font-size: 0.82rem; color: var(--ink-soft); }
+  footer p + p { margin-top: 6px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <span class="label">NaVVA · KCL × BFI</span>
+    <button class="pill" id="theme" type="button" aria-label="Switch colour theme">THEME</button>
+  </div>
+
+  <header class="screen">
+    <div class="osd"><span class="rec"><i></i>REC &nbsp; OFF AIR</span><span class="tc">2016 ▸ 2026</span></div>
+    <div class="title">
+      <span class="label">AHRC Collaborative Doctoral Partnership · King's College London × British Film Institute</span>
+      <h1>From Narratives of Value to Valuable Algorithms</h1>
+      <p class="dek">A decade of promotional screen culture in the UK, seen by machine</p>
+    </div>
+    <div class="strip">
+      <svg viewBox="0 0 1000 96" role="img" aria-label="Diagram: a continuous broadcast recording in which programme segments alternate with advertising breaks; each break is divided into single advertisements at marked cut points.">
+        <text x="0" y="12">PROGRAMME</text><text x="262" y="12" fill="#d3a54f">BREAK</text><text x="640" y="12" fill="#d3a54f">BREAK</text>
+        <g>
+          <rect x="0" y="22" width="250" height="40" fill="#18201c" stroke="#27352e"/>
+          <rect x="390" y="22" width="238" height="40" fill="#18201c" stroke="#27352e"/>
+          <rect x="800" y="22" width="200" height="40" fill="#18201c" stroke="#27352e"/>
+        </g>
+        <g fill="#a6dfbf" fill-opacity="0.82">
+          <rect x="262" y="22" width="30" height="40"/><rect x="295" y="22" width="20" height="40"/><rect x="318" y="22" width="30" height="40"/><rect x="351" y="22" width="10" height="40"/><rect x="364" y="22" width="14" height="40"/>
+          <rect x="640" y="22" width="20" height="40"/><rect x="663" y="22" width="40" height="40"/><rect x="706" y="22" width="30" height="40"/><rect x="739" y="22" width="20" height="40"/><rect x="762" y="22" width="26" height="40"/>
+        </g>
+        <g stroke="#d3a54f" stroke-width="1.5">
+          <path d="M262 16V70M293.5 16V70M316.5 16V70M349.5 16V70M362.5 16V70M378 16V70M640 16V70M661.5 16V70M704.5 16V70M737.5 16V70M760.5 16V70M788 16V70"/>
+        </g>
+        <path d="M0 80H1000" stroke="#27352e"/>
+        <g stroke="#486054"><path d="M0 76V84M250 76V84M500 76V84M750 76V84M1000 76V84"/></g>
+        <text x="0" y="96">00:00:00</text><text x="930" y="96">01:00:00</text>
+      </svg>
+      <div class="bars" aria-hidden="true"><span style="background:#c9c9c2"></span><span style="background:#c4bb4e"></span><span style="background:#55b5b0"></span><span style="background:#5fae62"></span><span style="background:#a65c9e"></span><span style="background:#b9504a"></span><span style="background:#4a5fae"></span></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="prose">
+      <div class="sec-head"><span class="label">01 · The archive</span><h2>The adverts are in the recordings, but not yet in the catalogue</h2></div>
+      <p>Since 2016 the BFI National Archive has recorded television off air from the UK's main commercial public service channels. Every advertisement broadcast on those channels is somewhere in the recordings. The adverts are not catalogued as items, however. They sit inside thousands of hours of continuous video, between and within the programmes they interrupted.</p>
+      <p>NaVVA turns this material into a collection that can be studied, and then studies it. The project treats a decade of television advertising as a record of how social and economic values were presented to audiences in the UK, and it asks what computational methods can and cannot see in that record.</p>
+    </section>
+
+    <section>
+      <div class="sec-head"><span class="label">02 · The question</span><h2>One question, asked of ten years of commercial television</h2></div>
+      <p class="rq">What can a computational analysis of the BFI's broadcast advertising archive reveal about the construction and negotiation of British national identity on commercial television between 2016 and 2026?</p>
+    </section>
+
+    <section>
+      <div class="sec-head"><span class="label">03 · The approach</span><h2>Three steps, each with a different kind of reader</h2></div>
+      <div class="steps">
+        <div class="step" style="--c: var(--archive)">
+          <span class="label">Archive to corpus</span>
+          <h3>The corpus is made, not found</h3>
+          <p>Single adverts are cut out of continuous recordings using the broadcast schedule, the soundtrack and the picture. No machine learning decides where an advert begins or ends, and every cut is logged so that it can be checked.</p>
+        </div>
+        <div class="step" style="--c: var(--machine)">
+          <span class="label">Machine</span>
+          <h3>A model describes; it does not interpret</h3>
+          <p>A vision-language model annotates each advert, for example who appears, where the scene is set, and which national markers are visible. Following Arnold and Tilton's <a href="https://doi.org/10.7551/mitpress/14046.001.0001"><i>Distant Viewing</i></a> (2023), the project treats these outputs as annotations that still need interpretation.</p>
+        </div>
+        <div class="step" style="--c: var(--human)">
+          <span class="label">Human</span>
+          <h3>Where the model misreads is also evidence</h3>
+          <p>A purposively selected set of adverts is read closely with the vocabulary of social semiotics. The places where the model's descriptions and the close readings differ are recorded and analysed, because they indicate what kind of cultural knowledge reading national identity in advertising requires.</p>
+        </div>
+      </div>
+      <p class="note">The claims of the project are claims about the BFI collection, not about British television advertising as a whole. No archive footage is shown on this page.</p>
+    </section>
+
+    <section>
+      <div class="sec-head"><span class="label">04 · People</span><h2>A partnership between a university department and a national archive</h2></div>
+      <div class="people">
+        <div class="person"><b>Shihan Liu</b><span>PhD researcher, Department of Digital Humanities, King's College London</span></div>
+        <div class="person"><b>Dr Daniel Chávez Heras</b><span>First supervisor, Department of Digital Humanities, King's College London</span></div>
+        <div class="person"><b>Dr Astrid Van den Bossche</b><span>Second supervisor, Department of Digital Humanities, King's College London</span></div>
+        <div class="person"><b>Stephen McConnachie</b><span>Co-supervisor, Head of Data &amp; Digital Preservation, British Film Institute</span></div>
+      </div>
+    </section>
+
+    <section class="prose">
+      <div class="sec-head"><span class="label">05 · Status</span><h2>In progress, 2025 to 2029</h2></div>
+      <p>The project began in October 2025. Work so far has concentrated on corpus construction, that is, on cutting single adverts out of the recordings and measuring how accurate the cuts are. Code, documentation and publications will be linked from this page as they are released.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Funded by the Arts and Humanities Research Council (AHRC) through a Collaborative Doctoral Partnership studentship allocated to the British Film Institute, and hosted by the Department of Digital Humanities, King's College London.</p>
+    <p class="label">Last updated October 2026</p>
+  </footer>
+</div>
+<script>
+  (function () {
+    var root = document.documentElement, key = "navva-theme";
+    try { var saved = localStorage.getItem(key); if (saved) root.dataset.theme = saved; } catch (e) {}
+    document.getElementById("theme").addEventListener("click", function () {
+      var dark = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+      root.dataset.theme = dark ? "light" : "dark";
+      try { localStorage.setItem(key, root.dataset.theme); } catch (e) {}
+    });
+  })();
+</script>
+</body>
+</html>

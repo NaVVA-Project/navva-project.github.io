@@ -1,0 +1,54 @@
+<!doctype html>
+<!-- Source for assets/navva_card.png. Render at 1480x960:
+     chrome --headless --screenshot=navva_card.png --window-size=1480,960 --hide-scrollbars card.html -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400&display=swap">
+<style>
+  html, body { margin: 0; width: 1480px; height: 960px; overflow: hidden; }
+  body { background: #080c0b; color: #e5eee7; font-family: "IBM Plex Mono", monospace; position: relative;
+    background-image: repeating-linear-gradient(0deg, rgba(126,255,197,0.05) 0, rgba(126,255,197,0.05) 2px, transparent 2px, transparent 5px), radial-gradient(ellipse at 50% 0%, #1a2b24 0%, #080c0b 72%); }
+  body::after { content: ""; position: absolute; inset: 0; border: 10px solid #284438; box-shadow: inset 0 0 180px rgba(0,0,0,0.7); pointer-events: none; }
+  .osd { position: absolute; top: 54px; left: 80px; right: 80px; display: flex; justify-content: space-between; font-size: 22px; letter-spacing: 0.14em; }
+  .rec { color: #f06a61; } .rec i { display: inline-block; width: 16px; height: 16px; border-radius: 50%; background: currentColor; margin-right: 14px; }
+  .tc { color: #d3a54f; }
+  /* safe-area corner marks */
+  .c { position: absolute; width: 44px; height: 44px; border: 2px solid #486054; }
+  .c.tl { top: 110px; left: 80px; border-right: 0; border-bottom: 0; } .c.tr { top: 110px; right: 80px; border-left: 0; border-bottom: 0; }
+  .c.bl { bottom: 110px; left: 80px; border-right: 0; border-top: 0; } .c.br { bottom: 110px; right: 80px; border-left: 0; border-top: 0; }
+  .title { position: absolute; top: 176px; left: 130px; right: 130px; border-left: 6px double #a6dfbf; padding-left: 40px; }
+  .label { font-size: 20px; letter-spacing: 0.12em; text-transform: uppercase; color: #a9b8ae; }
+  h1 { font: 400 92px/1.06 "Source Serif 4", Georgia, serif; color: #a6dfbf; text-shadow: 0 0 30px rgba(116,226,166,0.28); margin: 26px 0 26px; }
+  .dek { font: 400 36px/1.3 "Source Serif 4", Georgia, serif; color: #e5eee7; }
+  .strip { position: absolute; left: 130px; right: 130px; bottom: 176px; }
+  svg { width: 100%; display: block; }
+  svg text { font-family: "IBM Plex Mono", monospace; font-size: 13px; letter-spacing: 0.1em; fill: #a9b8ae; }
+  .bars { display: flex; height: 18px; margin-top: 22px; } .bars span { flex: 1; }
+  .foot { position: absolute; bottom: 54px; left: 80px; right: 80px; display: flex; justify-content: space-between; font-size: 20px; letter-spacing: 0.14em; color: #a9b8ae; }
+  .foot b { color: #d3a54f; font-weight: 500; }
+</style>
+</head>
+<body>
+  <div class="osd"><span class="rec"><i></i>REC &nbsp; OFF AIR</span><span class="tc">2016 ▸ 2026</span></div>
+  <i class="c tl"></i><i class="c tr"></i><i class="c bl"></i><i class="c br"></i>
+  <div class="title">
+    <span class="label">AHRC Collaborative Doctoral Partnership</span>
+    <h1>From Narratives of Value to Valuable Algorithms</h1>
+    <p class="dek" style="margin:0">A decade of promotional screen culture in the UK, seen by machine</p>
+  </div>
+  <div class="strip">
+    <svg viewBox="0 0 1000 78">
+      <text x="0" y="12">PROGRAMME</text><text x="262" y="12" fill="#d3a54f">BREAK</text><text x="640" y="12" fill="#d3a54f">BREAK</text>
+      <g fill="#18201c" stroke="#27352e"><rect x="0" y="22" width="250" height="44"/><rect x="390" y="22" width="238" height="44"/><rect x="800" y="22" width="200" height="44"/></g>
+      <g fill="#a6dfbf" fill-opacity="0.82">
+        <rect x="262" y="22" width="30" height="44"/><rect x="295" y="22" width="20" height="44"/><rect x="318" y="22" width="30" height="44"/><rect x="351" y="22" width="10" height="44"/><rect x="364" y="22" width="14" height="44"/>
+        <rect x="640" y="22" width="20" height="44"/><rect x="663" y="22" width="40" height="44"/><rect x="706" y="22" width="30" height="44"/><rect x="739" y="22" width="20" height="44"/><rect x="762" y="22" width="26" height="44"/>
+      </g>
+      <path stroke="#d3a54f" stroke-width="1.5" d="M262 16V74M293.5 16V74M316.5 16V74M349.5 16V74M362.5 16V74M378 16V74M640 16V74M661.5 16V74M704.5 16V74M737.5 16V74M760.5 16V74M788 16V74"/>
+    </svg>
+    <div class="bars"><span style="background:#c9c9c2"></span><span style="background:#c4bb4e"></span><span style="background:#55b5b0"></span><span style="background:#5fae62"></span><span style="background:#a65c9e"></span><span style="background:#b9504a"></span><span style="background:#4a5fae"></span></div>
+  </div>
+  <div class="foot"><span><b>NaVVA</b> &nbsp; KING'S COLLEGE LONDON × BRITISH FILM INSTITUTE</span><span>PHD PROJECT 2025–2029</span></div>
+</body>
+</html>
