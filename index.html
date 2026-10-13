@@ -20,7 +20,7 @@
     --ink: #382b22; --ink-soft: #6f5c4b; --ink-3: #735e4c;
     --line: #d1c0a5; --line-strong: #aa9270;
     --accent: #712936; --brass: #805f26;
-    --archive: #66733b; --machine: #2d6692; --human: #9a5a17;
+    --lens: #805f26; --archive: #66733b; --machine: #2d6692; --human: #9a5a17;
     --scr-bg: #fbf6ea; --scr-ink: #382b22; --scr-soft: #6f5c4b; --scr-accent: #571c28; --scr-brass: #805f26; --scr-rec: #712936;
     --scr-border: #aa9270; --scr-border-top: #712936; --scr-bw: 1px;
     --scr-texture: none; --scr-shadow: none; --scr-glow: none;
@@ -39,7 +39,7 @@
       --ink: #e5eee7; --ink-soft: #a9b8ae; --ink-3: #82968a;
       --line: #27352e; --line-strong: #486054;
       --accent: #78b49a; --brass: #d3a54f;
-      --archive: #b9c46e; --machine: #55b5d9; --human: #e9a657;
+      --lens: #9db3a6; --archive: #b9c46e; --machine: #55b5d9; --human: #e9a657;
       --scr-bg: #080c0b; --scr-ink: #e5eee7; --scr-soft: #a9b8ae; --scr-accent: #a6dfbf; --scr-brass: #d3a54f; --scr-rec: #f06a61;
       --scr-border: #284438; --scr-border-top: #284438; --scr-bw: 4px;
       --scr-texture: repeating-linear-gradient(0deg, rgba(126,255,197,0.045) 0, rgba(126,255,197,0.045) 1px, transparent 1px, transparent 3px), radial-gradient(ellipse at 50% 0%, #17251f 0%, #080c0b 70%);
@@ -54,7 +54,7 @@
       --ink: #e5eee7; --ink-soft: #a9b8ae; --ink-3: #82968a;
       --line: #27352e; --line-strong: #486054;
       --accent: #78b49a; --brass: #d3a54f;
-      --archive: #b9c46e; --machine: #55b5d9; --human: #e9a657;
+      --lens: #9db3a6; --archive: #b9c46e; --machine: #55b5d9; --human: #e9a657;
       --scr-bg: #080c0b; --scr-ink: #e5eee7; --scr-soft: #a9b8ae; --scr-accent: #a6dfbf; --scr-brass: #d3a54f; --scr-rec: #f06a61;
       --scr-border: #284438; --scr-border-top: #284438; --scr-bw: 4px;
       --scr-texture: repeating-linear-gradient(0deg, rgba(126,255,197,0.045) 0, rgba(126,255,197,0.045) 1px, transparent 1px, transparent 3px), radial-gradient(ellipse at 50% 0%, #17251f 0%, #080c0b 70%);
@@ -80,7 +80,7 @@
   .pill { font: 500 0.72rem var(--mono); letter-spacing: 0.06em; border: 1px solid var(--line-strong); background: transparent; color: var(--ink-soft); border-radius: 2px; padding: 4px 10px; cursor: pointer; }
 
   /* masthead: a dossier sheet in light, a monitor in dark */
-  .screen { position: relative; background: var(--scr-bg); color: var(--scr-ink); border: var(--scr-bw) solid var(--scr-border); border-top: max(3px, var(--scr-bw)) solid var(--scr-border-top); overflow: hidden;
+  .screen { --bg: var(--scr-bg); --soft: var(--scr-soft); --title: var(--scr-accent); position: relative; background: var(--scr-bg); color: var(--scr-ink); border: var(--scr-bw) solid var(--scr-border); border-top: max(3px, var(--scr-bw)) solid var(--scr-border-top); overflow: hidden;
     background-image: var(--scr-texture); box-shadow: var(--scr-shadow); }
   .osd { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 14px 22px 0; font: var(--osd-font); letter-spacing: var(--osd-ls); }
   .osd .rec { color: var(--scr-rec); display: var(--d-rec); } .osd .file { color: var(--scr-brass); display: var(--d-file); text-transform: uppercase; }
@@ -131,7 +131,7 @@
       <p class="dek">A decade of promotional screen culture in the UK, seen by machine</p>
     </div>
     <div class="strip">
-      <svg id="wall" viewBox="0 0 1320 250" role="img" aria-label="Concept image: a wall of small abstract screens running from 2016 to 2026. All of them are marked as seen by machine, and a few are outlined for close reading."></svg>
+      <svg id="wall" viewBox="0 0 1320 250" role="img" aria-label="Concept image: ten years of broadcast adverts drawn as a scattered field of small screens. A dotted line traces the scan path of the machine across the field, and three magnifying glasses mark places that are read closely."></svg>
     </div>
   </header>
 
@@ -208,27 +208,62 @@
     });
   })();
   (function (svg) {
-      // The whole collection is seen by machine; a few adverts are picked out and read closely.
-      var pal = [0, 1, 2, 3, 4, 5, 6, 7].map(function (i) { return "var(--p" + i + ")"; });
-      var cols = 60, rows = 10, pw = 22, ph = 14, fw = 20, fh = 11, top = 36, s = 7, h = "", fills = {};
-      var picks = [[7, 2], [19, 6], [31, 3], [44, 7], [53, 1]], soft = "var(--scr-soft, var(--soft))", rule = "var(--w-off-line, var(--offl))";
+      var s = 11, h = "";
       function rnd() { s = (s * 16807) % 2147483647; return s / 2147483647; }
-      svg.setAttribute("viewBox", "0 0 1320 212");
-      for (var r = 0; r < rows; r++) for (var c = 0; c < cols; c++) {
-        var col = pal[Math.floor(rnd() * pal.length)], o = (0.3 + rnd() * 0.6).toFixed(2);
-        fills[c + "," + r] = col;
-        h += '<rect x="' + (c * pw + 1) + '" y="' + (top + r * ph) + '" width="' + fw + '" height="' + fh + '" fill="' + col + '" fill-opacity="' + o + '"/>';
-      }
-      picks.forEach(function (p) {
-        var cx = p[0] * pw + 1 + fw / 2, cy = top + p[1] * ph + fh / 2;
-        h += '<rect x="' + (cx - 19) + '" y="' + (cy - 11) + '" width="38" height="22" fill="var(--scr-bg, var(--bg))"/>';
-        h += '<rect x="' + (cx - 19) + '" y="' + (cy - 11) + '" width="38" height="22" fill="' + fills[p[0] + "," + p[1]] + '" stroke="var(--human)" stroke-width="2.5"/>';
+      function P(i) { return "var(--p" + (i % 8) + ")"; }
+      var M = "var(--machine)", S = "var(--soft)", T = "var(--title)";
+      // The collection as an irregular field of points; the machine leaves a scan path, the reader looks through magnifying glasses.
+      var centres = [[100, 190], [290, 215], [450, 110], [600, 265], [760, 170], [900, 290], [1030, 95], [1200, 205], [860, 70], [1290, 300], [180, 320]];
+      var lensAt = [1, 4, 7], stars = [], LR = 54, MAG = 1.8;
+      function gauss() { return Math.sqrt(-2 * Math.log(rnd() + 1e-9)) * Math.cos(6.2832 * rnd()); }
+      function add(x, y, r, ci) { stars.push({ x: x, y: y, r: r, c: ci, col: P(Math.floor(rnd() * 8)), o: 0.45 + rnd() * 0.5 }); }
+      centres.forEach(function (ct, ci) {
+        var n = 12 + Math.floor(rnd() * 16);
+        for (var i = 0; i < n; i++) add(ct[0] + gauss() * 62, ct[1] + gauss() * 40, 1 + Math.pow(rnd(), 3) * 5, ci);
+        if (lensAt.indexOf(ci) > -1) for (var j = 0; j < 9; j++) add(ct[0] + gauss() * 15, ct[1] + gauss() * 13, 1.2 + rnd() * 2.6, ci);
       });
-      h += '<path d="M1 28V22H1319V28" fill="none" stroke="var(--machine)" stroke-width="1.5"/>';
-      h += '<text x="1" y="13" fill="var(--machine)">SEEN BY MACHINE · ALL OF THEM</text>';
-      h += '<text x="1319" y="13" fill="var(--human)" text-anchor="end">READ CLOSELY · A FEW</text>';
-      h += '<text x="1" y="206" fill="' + soft + '">2016</text><text x="1319" y="206" fill="' + soft + '" text-anchor="end">2026</text>';
-      h += '<path d="M62 201H1258" stroke="' + rule + '"/>';
+      for (var u = 0; u < 90; u++) add(rnd() * 1320, 36 + rnd() * 300, 0.8 + rnd() * 1.4, -1);
+      stars = stars.filter(function (p) { return p.x > 4 && p.x < 1316 && p.y > 34 && p.y < 344; });
+      var lines = [];
+      centres.forEach(function (ct, ci) {
+        var big = stars.filter(function (p) { return p.c === ci; }).sort(function (a, b) { return b.r - a.r; }).slice(0, 5).sort(function (a, b) { return a.x - b.x; });
+        for (var i = 1; i < big.length; i++) lines.push([big[i - 1], big[i]]);
+      });
+      function star(x, y, r, p, bright) {
+        var w = r * 3.4, hh = w * 0.5625, x0 = x - w / 2, y0 = y - hh / 2, o = bright ? 1 : p.o;
+        if (w < 5) return '<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="' + r.toFixed(1) + '" fill="' + p.col + '" fill-opacity="' + o.toFixed(2) + '"/>';
+        var out = '<rect x="' + x0.toFixed(1) + '" y="' + y0.toFixed(1) + '" width="' + w.toFixed(1) + '" height="' + hh.toFixed(1) + '" rx="' + (w * 0.08).toFixed(1) + '" fill="' + p.col + '" fill-opacity="' + o.toFixed(2) + '"/>';
+        if (bright && w > 12) {
+          out += '<rect x="' + x0.toFixed(1) + '" y="' + y0.toFixed(1) + '" width="' + w.toFixed(1) + '" height="' + hh.toFixed(1) + '" rx="' + (w * 0.08).toFixed(1) + '" fill="none" stroke="var(--ink)" stroke-width="1.4"/>';
+          for (var sl = 1; sl < 4; sl++) out += '<path d="M' + (x0 + 2).toFixed(1) + ' ' + (y0 + hh * sl / 4).toFixed(1) + 'H' + (x0 + w - 2).toFixed(1) + '" stroke="var(--bg)" stroke-opacity="0.45" stroke-width="1"/>';
+          out += '<path d="M' + (x - w * 0.22).toFixed(1) + ' ' + (y0 + hh + 1).toFixed(1) + 'v3h' + (w * 0.44).toFixed(1) + 'v-3" fill="none" stroke="var(--ink)" stroke-width="1.2"/>';
+        }
+        return out;
+      }
+      lines.forEach(function (l) { h += '<path d="M' + l[0].x.toFixed(1) + ' ' + l[0].y.toFixed(1) + 'L' + l[1].x.toFixed(1) + ' ' + l[1].y.toFixed(1) + '" stroke="' + S + '" stroke-width="1" stroke-opacity="0.55"/>'; });
+      stars.forEach(function (p) { h += star(p.x, p.y, p.r, p, false); });
+      h += '<path d="M0 300C120 190 200 200 290 215S520 250 600 205S700 150 760 170S940 40 1030 95S1150 190 1200 205S1290 270 1320 290" fill="none" stroke="' + M + '" stroke-width="2" stroke-dasharray="3 9" stroke-linecap="round"/>';
+      lensAt.forEach(function (li, n) {
+        var cx = centres[li][0], cy = centres[li][1], id = "ln" + n, k = 0.7071;
+        function mx(x) { return cx + (x - cx) * MAG; } function my(y) { return cy + (y - cy) * MAG; }
+        // handle first, so the rim sits on top of it
+        h += '<path d="M' + (cx + LR * k) + ' ' + (cy + LR * k) + 'l46 46" stroke="var(--lens)" stroke-width="11" stroke-linecap="round"/>';
+        h += '<path d="M' + (cx + LR * k + 4) + ' ' + (cy + LR * k + 4) + 'l12 12" stroke="var(--bg)" stroke-width="5" stroke-opacity="0.55"/>';
+        h += '<clipPath id="' + id + '"><circle cx="' + cx + '" cy="' + cy + '" r="' + (LR - 3) + '"/></clipPath>';
+        h += '<circle cx="' + cx + '" cy="' + cy + '" r="' + LR + '" fill="var(--bg)"/><circle cx="' + cx + '" cy="' + cy + '" r="' + LR + '" fill="' + T + '" fill-opacity="0.1"/>';
+        h += '<g clip-path="url(#' + id + ')">';
+        lines.forEach(function (l) { h += '<path d="M' + mx(l[0].x).toFixed(1) + ' ' + my(l[0].y).toFixed(1) + 'L' + mx(l[1].x).toFixed(1) + ' ' + my(l[1].y).toFixed(1) + '" stroke="' + S + '" stroke-width="1.6" stroke-opacity="0.8"/>'; });
+        h += '<path d="M' + (cx - LR) + ' ' + cy + 'H' + (cx + LR) + '" stroke="' + M + '" stroke-width="3" stroke-dasharray="5 14" stroke-linecap="round" transform="rotate(8 ' + cx + ' ' + cy + ')"/>';
+        stars.forEach(function (p) { var dx = p.x - cx, dy = p.y - cy; if (dx * dx + dy * dy < Math.pow(LR / MAG + 6, 2)) h += star(mx(p.x), my(p.y), p.r * MAG, p, true); });
+        h += '</g>';
+        h += '<circle cx="' + cx + '" cy="' + cy + '" r="' + LR + '" fill="none" stroke="var(--lens)" stroke-width="6"/>';
+        h += '<circle cx="' + cx + '" cy="' + cy + '" r="' + (LR - 6) + '" fill="none" stroke="var(--lens)" stroke-width="1" stroke-opacity="0.6"/>';
+        h += '<path d="M' + (cx - LR + 14) + ' ' + (cy - 12) + 'A' + (LR - 12) + ' ' + (LR - 12) + ' 0 0 1 ' + (cx - 12) + ' ' + (cy - LR + 14) + '" fill="none" stroke="var(--ink)" stroke-width="3" stroke-opacity="0.35" stroke-linecap="round"/>';
+      });
+      h += '<text x="0" y="14" fill="' + M + '">TEN YEARS OF BROADCAST ADVERTS · MACHINE SCAN PATH</text><text x="1320" y="14" fill="var(--brass)" text-anchor="end">THREE LENSES · CLOSE READING</text>';
+      h += '<text x="0" y="372" fill="' + S + '">2016</text><text x="1320" y="372" fill="' + S + '" text-anchor="end">2026</text>';
+      for (var cb = 0; cb < 7; cb++) h += '<rect x="' + (70 + cb * 168.6) + '" y="362" width="168.6" height="8" fill="' + P([0, 1, 2, 3, 4, 5, 6][cb]) + '" fill-opacity="0.8"/>';
+      svg.setAttribute("viewBox", "0 0 1320 378");
       svg.innerHTML = h;
     })(document.getElementById("wall"));
 </script>

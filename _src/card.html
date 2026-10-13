@@ -1,78 +1,192 @@
 <!doctype html>
 <!-- Source for assets/navva_card.png. Render at 1480x960:
      chrome --headless --screenshot=navva_card.png --window-size=1480,960 --hide-scrollbars card.html
-     Add ?t=paper for the archival dossier version. -->
+     ?t=paper gives the archival dossier version; ?c=1..4 the earlier concept images. -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Newsreader:opsz,wght@6..72,400..500&family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@500;600&family=VT323&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400..500;1,6..72,400..500&family=Space+Grotesk:wght@500;600&family=VT323&display=swap">
 <style>
-  :root { --bg: #080c0b; --ink: #e5eee7; --soft: #a9b8ae; --title: #a6dfbf; --brass: #d3a54f; --rec: #f06a61; --machine: #55b5d9; --human: #e9a657; --off: #101713; --offl: #2c3d34;
+  :root { --lens: #9db3a6; --bg: #080c0b; --ink: #e5eee7; --soft: #a9b8ae; --title: #a6dfbf; --brass: #d3a54f; --rec: #f06a61; --machine: #55b5d9; --human: #e9a657; --off: #101713; --offl: #2c3d34;
     --p0: #c9c9c2; --p1: #c4bb4e; --p2: #55b5b0; --p3: #5fae62; --p4: #d98a4a; --p5: #b9504a; --p6: #4a5fae; --p7: #a6dfbf; }
-  .paper { --bg: #fbf6ea; --ink: #382b22; --soft: #6f5c4b; --title: #571c28; --brass: #805f26; --rec: #712936; --machine: #2d6692; --human: #9a5a17; --off: #f2e9d7; --offl: #d1c0a5;
+  .paper { --lens: #805f26; --bg: #fbf6ea; --ink: #382b22; --soft: #6f5c4b; --title: #571c28; --brass: #805f26; --rec: #712936; --machine: #2d6692; --human: #9a5a17; --off: #f2e9d7; --offl: #d1c0a5;
     --p0: #aa9270; --p1: #805f26; --p2: #2d6692; --p3: #66733b; --p4: #b0703a; --p5: #9a3e32; --p6: #712936; --p7: #6f5c4b; }
-  body.paper { background: #f2e9d7; }
-  body.paper::after { inset: 34px; border: 1px solid #aa9270; border-top: 6px solid #712936; box-shadow: none; }
-  body.paper::before { content: ""; position: absolute; inset: 34px; background: #fbf6ea; z-index: -1; }
-  .paper .osd { font: 500 22px/1 "IBM Plex Mono", monospace; letter-spacing: 0.14em; top: 62px; }
-  .paper .rec i { display: none; } .paper h1 { text-shadow: none; }
-  .paper .title { border-left: 6px double #712936; padding-left: 34px; }
   html, body { margin: 0; width: 1480px; height: 960px; overflow: hidden; }
   body { background: var(--bg); color: var(--ink); z-index: 0; font-family: "IBM Plex Mono", monospace; position: relative;
     background-image: repeating-linear-gradient(0deg, rgba(126,255,197,0.05) 0, rgba(126,255,197,0.05) 2px, transparent 2px, transparent 5px), radial-gradient(ellipse at 50% 0%, #1a2b24 0%, #080c0b 72%); }
   body::after { content: ""; position: absolute; inset: 0; border: 10px solid #284438; box-shadow: inset 0 0 180px rgba(0,0,0,0.7); pointer-events: none; }
+  body.paper { background: #f2e9d7; }
+  body.paper::after { inset: 34px; border: 1px solid #aa9270; border-top: 6px solid #712936; box-shadow: none; }
+  body.paper::before { content: ""; position: absolute; inset: 34px; background: #fbf6ea; z-index: -1; }
   .osd { position: absolute; top: 44px; left: 80px; right: 80px; display: flex; justify-content: space-between; font: 400 44px/1 "VT323", monospace; letter-spacing: 0.06em; }
-  .rec { color: var(--rec); } .rec i { display: inline-block; width: 20px; height: 20px; border-radius: 50%; background: currentColor; margin-right: 14px; }
+  .paper .osd { font: 500 22px/1 "IBM Plex Mono", monospace; letter-spacing: 0.14em; top: 62px; }
+  .rec { color: var(--rec); } .rec i { display: inline-block; width: 20px; height: 20px; border-radius: 50%; background: currentColor; margin-right: 14px; } .paper .rec i { display: none; }
   .tc { color: var(--brass); }
   .title { position: absolute; top: 132px; left: 80px; right: 80px; }
+  .paper .title { border-left: 6px double #712936; padding-left: 34px; }
   .label { font-size: 20px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--soft); }
-  h1 { font: 500 90px/1.08 "Space Grotesk", sans-serif; letter-spacing: -0.02em; color: var(--title); text-shadow: 0 0 34px rgba(116,226,166,0.34); margin: 24px 0 28px; }
-  .dek { font: 400 38px/1.3 "Newsreader", Georgia, serif; color: var(--ink); margin: 0; }
-  .b h1 { font: 800 76px/1.06 "Archivo", sans-serif; font-stretch: 112%; text-transform: uppercase; letter-spacing: 0.005em; }
-  .b .dek { font: 400 34px/1.3 "Archivo", sans-serif; }
-  .wall { position: absolute; left: 80px; right: 80px; bottom: 112px; }
-  .wall svg { width: 100%; display: block; overflow: visible; }
-  .wall text { font-family: "IBM Plex Mono", monospace; font-size: 15px; letter-spacing: 0.12em; }
+  h1 { font: 500 78px/1.08 "Space Grotesk", sans-serif; letter-spacing: -0.02em; color: var(--title); text-shadow: 0 0 34px rgba(116,226,166,0.34); margin: 20px 0 20px; text-wrap: balance; }
+  .paper h1 { text-shadow: none; }
+  .dek { font: 400 34px/1.3 "Newsreader", Georgia, serif; color: var(--ink); margin: 0; }
+  .art { position: absolute; left: 80px; right: 80px; bottom: 104px; }
+  .art svg { width: 100%; display: block; overflow: visible; }
+  .art text { font-family: "IBM Plex Mono", monospace; font-size: 15px; letter-spacing: 0.12em; }
+  .art text.note { font-family: "Newsreader", Georgia, serif; font-style: italic; font-size: 24px; letter-spacing: 0; }
   .foot { position: absolute; bottom: 50px; left: 80px; right: 80px; display: flex; justify-content: space-between; font-size: 20px; letter-spacing: 0.14em; color: var(--soft); }
   .foot b { color: var(--brass); font-weight: 500; }
+  .tag { position: absolute; top: 44px; left: 50%; transform: translateX(-50%); font-size: 18px; letter-spacing: 0.14em; color: var(--soft); }
 </style>
 </head>
 <body>
   <div class="osd"><span class="rec"><i></i>REC</span><span class="tc">2016–2026</span></div>
+  <div class="tag" id="tag"></div>
   <div class="title">
     <span class="label">AHRC Collaborative Doctoral Partnership</span>
     <h1>From Narratives of Value to Valuable Algorithms</h1>
     <p class="dek">A decade of promotional screen culture in the UK, seen by machine</p>
   </div>
-  <div class="wall"><svg id="wall" viewBox="0 0 1320 250"></svg></div>
+  <div class="art"><svg id="art" viewBox="0 0 1320 320"></svg></div>
   <div class="foot"><span><b>NaVVA</b> &nbsp; KING'S COLLEGE LONDON × BRITISH FILM INSTITUTE</span><span>PHD PROJECT 2025–2029</span></div>
   <script>
-    if (location.search.indexOf("v=b") > -1) document.body.classList.add("b");
-    if (location.search.indexOf("t=paper") > -1) { document.body.classList.add("paper"); document.querySelector(".rec").lastChild.textContent = "REF. NaVVA"; }
-    (function (svg) {
-      // The whole collection is seen by machine; a few adverts are picked out and read closely.
-      var pal = [0, 1, 2, 3, 4, 5, 6, 7].map(function (i) { return "var(--p" + i + ")"; });
-      var cols = 60, rows = 10, pw = 22, ph = 14, fw = 20, fh = 11, top = 36, s = 7, h = "", fills = {};
-      var picks = [[7, 2], [19, 6], [31, 3], [44, 7], [53, 1]], soft = "var(--scr-soft, var(--soft))", rule = "var(--w-off-line, var(--offl))";
-      function rnd() { s = (s * 16807) % 2147483647; return s / 2147483647; }
-      svg.setAttribute("viewBox", "0 0 1320 212");
-      for (var r = 0; r < rows; r++) for (var c = 0; c < cols; c++) {
-        var col = pal[Math.floor(rnd() * pal.length)], o = (0.3 + rnd() * 0.6).toFixed(2);
-        fills[c + "," + r] = col;
-        h += '<rect x="' + (c * pw + 1) + '" y="' + (top + r * ph) + '" width="' + fw + '" height="' + fh + '" fill="' + col + '" fill-opacity="' + o + '"/>';
+    var q = location.search, c = +(q.match(/c=(\d)/) || [0, 5])[1], s = 11, h = "";
+    if (q.indexOf("t=paper") > -1) { document.body.classList.add("paper"); document.querySelector(".rec").lastChild.textContent = "REF. NaVVA"; }
+    function rnd() { s = (s * 16807) % 2147483647; return s / 2147483647; }
+    function P(i) { return "var(--p" + (i % 8) + ")"; }
+    var M = "var(--machine)", H = "var(--human)", S = "var(--soft)", L = "var(--offl)", T = "var(--title)";
+    var names = ["", "A · SIGNAL", "B · ONE FRAME, TWO READINGS", "C · THE SHELF", "D · THE LENS", "E · CONSTELLATION"];
+    document.getElementById("tag").textContent = q.indexOf("tag") > -1 ? names[c] : "";
+
+    if (c === 1) {
+      // Ten years as ten broadcast signal traces; a few moments are marked for close reading.
+      var marks = { "2,31": 1, "5,74": 1, "8,52": 1 }, dots = "";
+      for (var y = 0; y <= 10; y++) {
+        var base = 76 + y * 23, bumps = [], pts = [], d = "";
+        for (var b = 0; b < 5; b++) bumps.push([80 + rnd() * 1160, 14 + rnd() * 44, 18 + rnd() * 40]);
+        for (var i = 0; i <= 110; i++) {
+          var x = 70 + i * 11.2, v = rnd() * 2.5;
+          bumps.forEach(function (g) { v += g[1] * Math.exp(-Math.pow((x - g[0]) / g[2], 2)); });
+          pts.push([x, base - v]);
+        }
+        pts.forEach(function (p, i) { d += (i ? "L" : "M") + p[0].toFixed(1) + " " + p[1].toFixed(1); });
+        h += '<path d="' + d + 'L1302 ' + (base + 6) + 'L70 ' + (base + 6) + 'Z" fill="var(--bg)"/>';
+        h += '<path d="' + d + '" fill="none" stroke="' + T + '" stroke-width="1.8" stroke-opacity="' + (0.5 + y * 0.05) + '"/>';
+        h += '<text x="0" y="' + (base + 4) + '" fill="' + S + '">' + (2016 + y) + '</text>';
+        [31, 74, 52].forEach(function (k) { if (marks[y + "," + k]) dots += '<circle cx="' + pts[k][0] + '" cy="' + pts[k][1] + '" r="9" fill="none" stroke="' + H + '" stroke-width="2.5"/>'; });
       }
-      picks.forEach(function (p) {
-        var cx = p[0] * pw + 1 + fw / 2, cy = top + p[1] * ph + fh / 2;
-        h += '<rect x="' + (cx - 19) + '" y="' + (cy - 11) + '" width="38" height="22" fill="var(--scr-bg, var(--bg))"/>';
-        h += '<rect x="' + (cx - 19) + '" y="' + (cy - 11) + '" width="38" height="22" fill="' + fills[p[0] + "," + p[1]] + '" stroke="var(--human)" stroke-width="2.5"/>';
+      h += dots;
+      h += '<text x="70" y="14" fill="' + M + '">SEEN BY MACHINE · EVERY YEAR AS A SIGNAL</text><text x="1319" y="14" fill="' + H + '" text-anchor="end">READ CLOSELY · A FEW MOMENTS</text>';
+    }
+
+    if (c === 2) {
+      // One abstract frame; the machine labels what is there, the reader asks what it means.
+      var fx = 150, fy = 40, fw = 460, fh = 259;
+      h += '<rect x="' + fx + '" y="' + fy + '" width="' + fw + '" height="' + fh + '" fill="var(--off)" stroke="' + S + '" stroke-width="2"/>';
+      h += '<path d="M' + fx + ' ' + (fy + 180) + 'H' + (fx + fw) + '" stroke="' + L + '" stroke-width="2"/>';
+      h += '<circle cx="' + (fx + 150) + '" cy="' + (fy + 108) + '" r="28" fill="' + P(0) + '" fill-opacity="0.7"/><path d="M' + (fx + 98) + ' ' + (fy + 180) + 'q52 -64 104 0z" fill="' + P(0) + '" fill-opacity="0.7"/>';
+      h += '<rect x="' + (fx + 268) + '" y="' + (fy + 150) + '" width="120" height="14" fill="' + P(1) + '" fill-opacity="0.8"/><rect x="' + (fx + 306) + '" y="' + (fy + 108) + '" width="34" height="42" fill="' + P(5) + '" fill-opacity="0.8"/>';
+      for (var t = 0; t < 7; t++) h += '<path d="M' + (fx + 60 + t * 52) + ' ' + (fy + 26) + 'l16 0l-8 20z" fill="' + P([5, 0, 6][t % 3]) + '" fill-opacity="0.85"/>';
+      h += '<path d="M' + (fx + 44) + ' ' + (fy + 26) + 'H' + (fx + 420) + '" stroke="' + S + '" stroke-width="1"/>';
+      var boxes = [[fx + 44, fy + 16, 392, 40, "BUNTING", 58], [fx + 92, fy + 72, 116, 116, "PERSON", 150], [fx + 260, fy + 100, 136, 72, "TABLE, PACK", 232]];
+      boxes.forEach(function (b) {
+        h += '<rect x="' + b[0] + '" y="' + b[1] + '" width="' + b[2] + '" height="' + b[3] + '" fill="none" stroke="' + M + '" stroke-width="2" stroke-dasharray="7 5"/>';
+        h += '<rect x="' + b[0] + '" y="' + (b[1] + b[3]) + '" width="' + (b[4].length * 10.6 + 14) + '" height="20" fill="' + M + '"/><text x="' + (b[0] + 7) + '" y="' + (b[1] + b[3] + 15) + '" fill="var(--bg)">' + b[4] + '</text>';
       });
-      h += '<path d="M1 28V22H1319V28" fill="none" stroke="var(--machine)" stroke-width="1.5"/>';
-      h += '<text x="1" y="13" fill="var(--machine)">SEEN BY MACHINE · ALL OF THEM</text>';
-      h += '<text x="1319" y="13" fill="var(--human)" text-anchor="end">READ CLOSELY · A FEW</text>';
-      h += '<text x="1" y="206" fill="' + soft + '">2016</text><text x="1319" y="206" fill="' + soft + '" text-anchor="end">2026</text>';
-      h += '<path d="M62 201H1258" stroke="' + rule + '"/>';
-      svg.innerHTML = h;
-    })(document.getElementById("wall"));
+      [["Whose celebration is this?", 70, fy + 36], ["Who is invited to the table?", 170, fy + 136], ["What makes this look British?", 270, fy + 230]].forEach(function (n) {
+        h += '<path d="M' + (fx + fw + 14) + ' ' + n[2] + 'H' + (fx + fw + 90) + 'V' + (n[1] - 6) + 'H' + (fx + fw + 120) + '" fill="none" stroke="' + H + '" stroke-width="1.5"/><circle cx="' + (fx + fw + 14) + '" cy="' + n[2] + '" r="4" fill="' + H + '"/>';
+        h += '<text class="note" x="' + (fx + fw + 134) + '" y="' + (n[1] + 2) + '" fill="' + H + '" style="font-size:30px">' + n[0] + '</text>';
+      });
+      h += '<text x="' + fx + '" y="22" fill="' + M + '">SEEN BY MACHINE · WHAT IS THERE</text><text x="' + (fx + fw + 134) + '" y="22" fill="' + H + '">READ CLOSELY · WHAT IT MEANS</text>';
+    }
+
+    if (c === 3) {
+      // Ten years of recordings as tapes on a shelf; one is pulled out to be read.
+      var pull = 5;
+      for (var k = 0; k <= 10; k++) {
+        var w = 104, x0 = 22 + k * 117, hh = 186 + Math.round(rnd() * 26), tp = 290 - hh - (k === pull ? 30 : 0);
+        h += '<rect x="' + x0 + '" y="' + tp + '" width="' + w + '" height="' + hh + '" fill="' + P(k + 2) + '" fill-opacity="' + (0.5 + rnd() * 0.3).toFixed(2) + '"' + (k === pull ? ' stroke="' + H + '" stroke-width="3"' : '') + '/>';
+        h += '<rect x="' + (x0 + 12) + '" y="' + (tp + 18) + '" width="' + (w - 24) + '" height="64" fill="var(--bg)" fill-opacity="0.9"/>';
+        h += '<text x="' + (x0 + w / 2) + '" y="' + (tp + 46) + '" fill="' + S + '" text-anchor="middle">' + (2016 + k) + '</text>';
+        h += '<path d="M' + (x0 + 24) + ' ' + (tp + 62) + 'H' + (x0 + w - 24) + '" stroke="' + L + '" stroke-width="2"/>';
+        for (var g = 0; g < 3; g++) h += '<path d="M' + (x0 + 14) + ' ' + (tp + hh - 22 - g * 10) + 'H' + (x0 + w - 14) + '" stroke="var(--bg)" stroke-opacity="0.45" stroke-width="3"/>';
+      }
+      h += '<path d="M0 291H1320" stroke="' + S + '" stroke-width="3"/>';
+      h += '<path d="M22 34V28H1296V34" fill="none" stroke="' + M + '" stroke-width="1.5"/><text x="22" y="16" fill="' + M + '">SEEN BY MACHINE · THE WHOLE SHELF</text>';
+      h += '<text x="1296" y="16" fill="' + H + '" text-anchor="end">READ CLOSELY · ONE AT A TIME</text>';
+    }
+
+    if (c === 4) {
+      // A decade runs through a lens: inside it, the stream of adverts comes into focus.
+      var cx = 660, cy = 172, R = 136;
+      h += '<path d="M0 ' + cy + 'H1320" stroke="' + L + '" stroke-width="2"/>';
+      for (var n = 0; n < 150; n++) { var tx = 8 + n * 8.74; if (Math.abs(tx - cx) > R + 6) h += '<rect x="' + tx.toFixed(1) + '" y="' + (cy - 7) + '" width="5.6" height="14" fill="' + P(Math.floor(rnd() * 8)) + '" fill-opacity="0.75"/>'; else rnd(); }
+      h += '<circle cx="' + cx + '" cy="' + cy + '" r="' + R + '" fill="var(--off)" stroke="' + M + '" stroke-width="3"/>';
+      h += '<circle cx="' + cx + '" cy="' + cy + '" r="' + (R + 14) + '" fill="none" stroke="' + M + '" stroke-width="1" stroke-dasharray="2 9"/>';
+      h += '<clipPath id="lens"><circle cx="' + cx + '" cy="' + cy + '" r="' + (R - 4) + '"/></clipPath><g clip-path="url(#lens)">';
+      for (var m = -3; m <= 3; m++) {
+        var bx = cx - 37 + m * 86;
+        h += '<rect x="' + bx + '" y="' + (cy - 21) + '" width="74" height="42" fill="' + P(m + 11) + '" fill-opacity="0.85"' + (m === 0 ? ' stroke="' + H + '" stroke-width="3.5"' : '') + '/>';
+      }
+      h += '</g>';
+      h += '<path d="M' + cx + ' ' + (cy - R - 26) + 'V' + (cy - R + 14) + 'M' + cx + ' ' + (cy + R - 14) + 'V' + (cy + R + 26) + '" stroke="' + M + '" stroke-width="2"/>';
+      h += '<text x="0" y="' + (cy + 40) + '" fill="' + S + '">2016</text><text x="1320" y="' + (cy + 40) + '" fill="' + S + '" text-anchor="end">2026</text>';
+      h += '<text x="' + (cx - R - 34) + '" y="' + (cy - R + 30) + '" fill="' + M + '" text-anchor="end">SEEN BY MACHINE</text>';
+      h += '<path d="M' + cx + ' ' + (cy + 23) + 'V' + (cy + 60) + 'H' + (cx + R + 40) + '" fill="none" stroke="' + H + '" stroke-width="1.2"/><text x="' + (cx + R + 50) + '" y="' + (cy + 65) + '" fill="' + H + '">READ CLOSELY</text>';
+    }
+    if (c === 5) {
+      // The collection as an irregular field of points; the machine leaves a scan path, the reader looks through magnifying glasses.
+      var centres = [[100, 190], [290, 215], [450, 110], [600, 265], [760, 170], [900, 290], [1030, 95], [1200, 205], [860, 70], [1290, 300], [180, 320]];
+      var lensAt = [1, 4, 7], stars = [], LR = 54, MAG = 1.8;
+      function gauss() { return Math.sqrt(-2 * Math.log(rnd() + 1e-9)) * Math.cos(6.2832 * rnd()); }
+      function add(x, y, r, ci) { stars.push({ x: x, y: y, r: r, c: ci, col: P(Math.floor(rnd() * 8)), o: 0.45 + rnd() * 0.5 }); }
+      centres.forEach(function (ct, ci) {
+        var n = 12 + Math.floor(rnd() * 16);
+        for (var i = 0; i < n; i++) add(ct[0] + gauss() * 62, ct[1] + gauss() * 40, 1 + Math.pow(rnd(), 3) * 5, ci);
+        if (lensAt.indexOf(ci) > -1) for (var j = 0; j < 9; j++) add(ct[0] + gauss() * 15, ct[1] + gauss() * 13, 1.2 + rnd() * 2.6, ci);
+      });
+      for (var u = 0; u < 90; u++) add(rnd() * 1320, 36 + rnd() * 300, 0.8 + rnd() * 1.4, -1);
+      stars = stars.filter(function (p) { return p.x > 4 && p.x < 1316 && p.y > 34 && p.y < 344; });
+      var lines = [];
+      centres.forEach(function (ct, ci) {
+        var big = stars.filter(function (p) { return p.c === ci; }).sort(function (a, b) { return b.r - a.r; }).slice(0, 5).sort(function (a, b) { return a.x - b.x; });
+        for (var i = 1; i < big.length; i++) lines.push([big[i - 1], big[i]]);
+      });
+      function star(x, y, r, p, bright) {
+        var w = r * 3.4, hh = w * 0.5625, x0 = x - w / 2, y0 = y - hh / 2, o = bright ? 1 : p.o;
+        if (w < 5) return '<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="' + r.toFixed(1) + '" fill="' + p.col + '" fill-opacity="' + o.toFixed(2) + '"/>';
+        var out = '<rect x="' + x0.toFixed(1) + '" y="' + y0.toFixed(1) + '" width="' + w.toFixed(1) + '" height="' + hh.toFixed(1) + '" rx="' + (w * 0.08).toFixed(1) + '" fill="' + p.col + '" fill-opacity="' + o.toFixed(2) + '"/>';
+        if (bright && w > 12) {
+          out += '<rect x="' + x0.toFixed(1) + '" y="' + y0.toFixed(1) + '" width="' + w.toFixed(1) + '" height="' + hh.toFixed(1) + '" rx="' + (w * 0.08).toFixed(1) + '" fill="none" stroke="var(--ink)" stroke-width="1.4"/>';
+          for (var sl = 1; sl < 4; sl++) out += '<path d="M' + (x0 + 2).toFixed(1) + ' ' + (y0 + hh * sl / 4).toFixed(1) + 'H' + (x0 + w - 2).toFixed(1) + '" stroke="var(--bg)" stroke-opacity="0.45" stroke-width="1"/>';
+          out += '<path d="M' + (x - w * 0.22).toFixed(1) + ' ' + (y0 + hh + 1).toFixed(1) + 'v3h' + (w * 0.44).toFixed(1) + 'v-3" fill="none" stroke="var(--ink)" stroke-width="1.2"/>';
+        }
+        return out;
+      }
+      lines.forEach(function (l) { h += '<path d="M' + l[0].x.toFixed(1) + ' ' + l[0].y.toFixed(1) + 'L' + l[1].x.toFixed(1) + ' ' + l[1].y.toFixed(1) + '" stroke="' + S + '" stroke-width="1" stroke-opacity="0.55"/>'; });
+      stars.forEach(function (p) { h += star(p.x, p.y, p.r, p, false); });
+      h += '<path d="M0 300C120 190 200 200 290 215S520 250 600 205S700 150 760 170S940 40 1030 95S1150 190 1200 205S1290 270 1320 290" fill="none" stroke="' + M + '" stroke-width="2" stroke-dasharray="3 9" stroke-linecap="round"/>';
+      lensAt.forEach(function (li, n) {
+        var cx = centres[li][0], cy = centres[li][1], id = "ln" + n, k = 0.7071;
+        function mx(x) { return cx + (x - cx) * MAG; } function my(y) { return cy + (y - cy) * MAG; }
+        // handle first, so the rim sits on top of it
+        h += '<path d="M' + (cx + LR * k) + ' ' + (cy + LR * k) + 'l46 46" stroke="var(--lens)" stroke-width="11" stroke-linecap="round"/>';
+        h += '<path d="M' + (cx + LR * k + 4) + ' ' + (cy + LR * k + 4) + 'l12 12" stroke="var(--bg)" stroke-width="5" stroke-opacity="0.55"/>';
+        h += '<clipPath id="' + id + '"><circle cx="' + cx + '" cy="' + cy + '" r="' + (LR - 3) + '"/></clipPath>';
+        h += '<circle cx="' + cx + '" cy="' + cy + '" r="' + LR + '" fill="var(--bg)"/><circle cx="' + cx + '" cy="' + cy + '" r="' + LR + '" fill="' + T + '" fill-opacity="0.1"/>';
+        h += '<g clip-path="url(#' + id + ')">';
+        lines.forEach(function (l) { h += '<path d="M' + mx(l[0].x).toFixed(1) + ' ' + my(l[0].y).toFixed(1) + 'L' + mx(l[1].x).toFixed(1) + ' ' + my(l[1].y).toFixed(1) + '" stroke="' + S + '" stroke-width="1.6" stroke-opacity="0.8"/>'; });
+        h += '<path d="M' + (cx - LR) + ' ' + cy + 'H' + (cx + LR) + '" stroke="' + M + '" stroke-width="3" stroke-dasharray="5 14" stroke-linecap="round" transform="rotate(8 ' + cx + ' ' + cy + ')"/>';
+        stars.forEach(function (p) { var dx = p.x - cx, dy = p.y - cy; if (dx * dx + dy * dy < Math.pow(LR / MAG + 6, 2)) h += star(mx(p.x), my(p.y), p.r * MAG, p, true); });
+        h += '</g>';
+        h += '<circle cx="' + cx + '" cy="' + cy + '" r="' + LR + '" fill="none" stroke="var(--lens)" stroke-width="6"/>';
+        h += '<circle cx="' + cx + '" cy="' + cy + '" r="' + (LR - 6) + '" fill="none" stroke="var(--lens)" stroke-width="1" stroke-opacity="0.6"/>';
+        h += '<path d="M' + (cx - LR + 14) + ' ' + (cy - 12) + 'A' + (LR - 12) + ' ' + (LR - 12) + ' 0 0 1 ' + (cx - 12) + ' ' + (cy - LR + 14) + '" fill="none" stroke="var(--ink)" stroke-width="3" stroke-opacity="0.35" stroke-linecap="round"/>';
+      });
+      h += '<text x="0" y="14" fill="' + M + '">TEN YEARS OF BROADCAST ADVERTS · MACHINE SCAN PATH</text><text x="1320" y="14" fill="var(--brass)" text-anchor="end">THREE LENSES · CLOSE READING</text>';
+      h += '<text x="0" y="372" fill="' + S + '">2016</text><text x="1320" y="372" fill="' + S + '" text-anchor="end">2026</text>';
+      for (var cb = 0; cb < 7; cb++) h += '<rect x="' + (70 + cb * 168.6) + '" y="362" width="168.6" height="8" fill="' + P([0, 1, 2, 3, 4, 5, 6][cb]) + '" fill-opacity="0.8"/>';
+      document.getElementById("art").setAttribute("viewBox", "0 0 1320 378");
+    }
+    document.getElementById("art").innerHTML = h;
   </script>
 </body>
 </html>
