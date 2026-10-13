@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1480,height=960,initial-scale=1">
+<title>NaVVA academic figures</title>
+<style>
+  :root{--paper:#f4f2eb;--ink:#17221f;--muted:#64706b;--grid:#d6d8d1;--teal:#087f73;--blue:#315aa8;--amber:#b46d1e;--red:#a9433d;--pale:#e5ece7;--warm:#efe7d8}
+  *{box-sizing:border-box}html,body{margin:0;width:1480px;height:960px;overflow:hidden;background:var(--paper)}
+  body{color:var(--ink);font-family:Arial,Helvetica,sans-serif;background-image:linear-gradient(rgba(23,34,31,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(23,34,31,.025) 1px,transparent 1px);background-size:24px 24px}
+  body.dark{--paper:#0d1412;--ink:#e8eee9;--muted:#9caaa3;--grid:#2a3832;--teal:#58c9b9;--blue:#89aaff;--amber:#dda34e;--red:#ef7168;--pale:#18231f;--warm:#292218;background-color:var(--paper);background-image:linear-gradient(rgba(205,230,216,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(205,230,216,.035) 1px,transparent 1px);box-shadow:inset 0 0 150px rgba(0,0,0,.28)}
+  .figure{display:none;width:1480px;height:960px;position:relative;padding:50px 70px 48px}.figure.on{display:block}
+  .meta{display:flex;align-items:center;justify-content:space-between;padding-bottom:14px;border-bottom:1px solid var(--ink);font-size:14px;letter-spacing:.12em;text-transform:uppercase}.meta .right{color:var(--muted)}
+  h1{font-family:Georgia,"Times New Roman",serif;font-size:48px;line-height:1.06;font-weight:normal;margin:31px 0 12px;letter-spacing:-.018em}.dek{font-family:Georgia,"Times New Roman",serif;font-size:23px;line-height:1.38;color:#3f4a46;margin:0;max-width:1120px}
+  .viz{position:absolute;left:70px;right:70px;top:245px;height:585px}.viz svg{width:100%;height:100%;overflow:visible}.viz text{font-family:Arial,Helvetica,sans-serif}.serif{font-family:Georgia,"Times New Roman",serif!important}.small{font-size:14px}.tiny{font-size:12px}.label{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}.value{font-family:Georgia,"Times New Roman",serif!important;font-weight:normal}.muted{fill:var(--muted)}
+  .caption{position:absolute;left:70px;right:70px;bottom:39px;padding-top:12px;border-top:1px solid var(--ink);display:flex;gap:26px;font:14px/1.35 Georgia,"Times New Roman",serif;color:#3e4844}.caption .number{font-family:Arial,Helvetica,sans-serif;font-weight:700;white-space:nowrap}.caption .source{margin-left:auto;white-space:nowrap;color:var(--muted);font-family:Arial,Helvetica,sans-serif;font-size:12px;letter-spacing:.04em}
+  body.dark .dek,body.dark .caption{color:#c2cbc6}body.dark .caption .source{color:var(--muted)}
+  .axis{stroke:var(--ink);stroke-width:1.2}.grid{stroke:var(--grid);stroke-width:1}.minor{stroke:#b8beb8;stroke-width:1}.signal{fill:none;stroke-linecap:round;stroke-linejoin:round}.node{fill:var(--paper);stroke-width:2}.callout{fill:var(--paper);stroke:var(--ink);stroke-width:1}.band{fill:var(--pale)}.output-band{fill:#e7eae4}body.dark .output-band{fill:#17211d}
+</style>
+</head>
+<body>
+<section class="figure" id="fig1" aria-label="Schedule-constrained audiovisual boundary identification pipeline">
+  <div class="meta"><span>NaVVA · Method figure 01</span><span class="right">First-batch corpus · 2020–2026 · 25 fps</span></div>
+  <h1>Schedule-constrained audiovisual boundary identification</h1>
+  <p class="dek">A deterministic pipeline combines scheduled slot structure, silence intervals and local scene-change evidence; each accepted or reverted boundary is written to a processing ledger.</p>
+  <div class="viz"><svg viewBox="0 0 1340 585" role="img" aria-label="Three signal tracks align to a traceable advertising boundary">
+    <defs><filter id="soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="3"/></filter><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="var(--ink)"/></marker></defs>
+    <text class="label" x="0" y="31" fill="var(--muted)">Corpus</text><text class="value" x="96" y="39" font-size="36" fill="var(--ink)">1,670</text><text class="small" x="199" y="34" fill="var(--muted)">recordings</text>
+    <text class="value" x="365" y="39" font-size="36" fill="var(--ink)">7</text><text class="small" x="398" y="34" fill="var(--muted)">years</text>
+    <text class="value" x="520" y="39" font-size="36" fill="var(--ink)">13</text><text class="small" x="572" y="34" fill="var(--muted)">metadata channel labels*</text><text class="tiny muted" x="572" y="52">*not normalised to unique services</text>
+    <line x1="0" y1="65" x2="1340" y2="65" class="grid"/>
+
+    <text class="label" x="0" y="124" fill="var(--amber)">1 · Schedule</text><text class="small muted" x="0" y="147">expected slot structure</text>
+    <line x1="220" y1="132" x2="1125" y2="132" stroke="var(--amber)" stroke-width="3"/>
+    <g stroke="var(--amber)" stroke-width="2"><line x1="300" y1="116" x2="300" y2="148"/><line x1="480" y1="116" x2="480" y2="148"/><line x1="630" y1="109" x2="630" y2="155"/><line x1="820" y1="116" x2="820" y2="148"/><line x1="1010" y1="116" x2="1010" y2="148"/></g>
+    <g class="tiny" fill="var(--muted)"><text x="288" y="104">20s</text><text x="468" y="104">30s</text><text x="644" y="104">30s</text><text x="808" y="104">20s</text><text x="998" y="104">30s</text></g>
+
+    <text class="label" x="0" y="230" fill="var(--teal)">2 · Audio</text><text class="small muted" x="0" y="253">candidate silence intervals</text>
+    <path class="signal" stroke="var(--teal)" stroke-width="3" d="M220 238L238 208L253 266L271 225L290 246L308 238H430L440 226L450 238H520L532 238L544 205L558 270L572 226L588 246L603 238H670L684 238L697 211L710 261L725 225L742 245L760 238H900L915 220L932 256L948 231L960 238H1040L1053 238L1068 205L1084 270L1100 225L1118 246L1125 238"/>
+    <g fill="var(--teal)" opacity=".13"><rect x="450" y="218" width="70" height="40" rx="4"/><rect x="603" y="218" width="67" height="40" rx="4"/><rect x="960" y="218" width="80" height="40" rx="4"/></g>
+    <g class="tiny" fill="var(--teal)"><text x="462" y="211">silence</text><text x="643" y="211">silence</text><text x="972" y="211">silence</text></g>
+
+    <text class="label" x="0" y="344" fill="var(--blue)">3 · Picture</text><text class="small muted" x="0" y="367">local scene-change evidence</text>
+    <line x1="220" y1="351" x2="1125" y2="351" stroke="#9aa9c3" stroke-width="2"/>
+    <path d="M220 351H430l27-2 18-8 15-27 12 37h104l13-3 12-16 13-50 15 69h310l13-4 15-24 13-58 17 86h99" class="signal" stroke="var(--blue)" stroke-width="3"/>
+
+    <line x1="630" y1="86" x2="630" y2="410" stroke="var(--red)" stroke-width="2" stroke-dasharray="5 6"/>
+    <circle cx="630" cy="132" r="7" class="node" stroke="var(--red)"/><circle cx="630" cy="238" r="7" class="node" stroke="var(--red)"/><circle cx="630" cy="331" r="7" class="node" stroke="var(--red)"/>
+    <path d="M630 410v27h574" fill="none" stroke="var(--red)" stroke-width="2" marker-end="url(#arrow)"/>
+    <circle cx="630" cy="437" r="8" fill="var(--red)"/><text class="label" x="654" y="423" fill="var(--red)">candidate cut</text>
+    <rect x="1213" y="407" width="127" height="61" class="callout"/><text class="label" x="1276" y="432" text-anchor="middle" fill="var(--ink)">Ledger</text><text class="tiny muted" x="1276" y="453" text-anchor="middle">accept · revert · review</text>
+
+    <rect class="output-band" x="0" y="495" width="1340" height="69"/>
+    <text class="label" x="22" y="520" fill="var(--muted)">First-batch corpus output</text><text class="value" x="22" y="551" font-size="28" fill="var(--ink)">24,944 cut points</text>
+    <line x1="355" y1="508" x2="355" y2="552" class="minor"/><text class="value" x="384" y="538" font-size="27" fill="var(--teal)">0.041 s</text><text class="tiny muted" x="384" y="557">median |Δ slot length|</text>
+    <line x1="665" y1="508" x2="665" y2="552" class="minor"/><text class="value" x="694" y="538" font-size="27" fill="var(--blue)">74%</text><text class="tiny muted" x="694" y="557">within 0.2 s</text>
+    <line x1="930" y1="508" x2="930" y2="552" class="minor"/><text class="value" x="959" y="538" font-size="27" fill="var(--amber)">54</text><text class="tiny muted" x="959" y="557">clips &gt;120 s flagged for review</text>
+  </svg></div>
+  <div class="caption"><span class="number">Figure 1.</span><span>Pipeline used for the v16 first-batch corpus run. Schedule information limits the search space; audio proposes candidate boundaries; picture evidence refines locally; an audio guard can reject implausible visual moves. Channel count refers to unnormalised metadata labels. Aggregate deviations refer to agreement with scheduled advert slot lengths, not absolute frame-level ground truth.</span><span class="source">Aggregate data only · no archive footage shown</span></div>
+</section>
+
+<section class="figure" id="fig2" aria-label="Schedule-agreement metrics by year">
+  <div class="meta"><span>NaVVA · Results figure 02</span><span class="right">V16 first-batch corpus · retained cut points only</span></div>
+  <h1>Schedule-agreement metrics by year</h1>
+  <p class="dek">The visual-refinement stage performs most consistently in 2022–2024; the audio guard limits, but does not remove, the deterioration observed in 2025–2026.</p>
+  <div class="viz"><svg viewBox="0 0 1340 585" role="img" aria-label="Annual median slot-length deviation and percentage of cut points within 0.2 seconds, 2020 to 2026">
+    <rect x="433" y="16" width="476" height="489" fill="var(--pale)"/><text class="tiny" x="671" y="35" text-anchor="middle" fill="var(--teal)">2022–2024</text>
+    <rect x="909" y="16" width="334" height="489" fill="var(--warm)"/><text class="tiny" x="1076" y="35" text-anchor="middle" fill="var(--amber)">2025–2026</text>
+
+    <text class="label" x="0" y="69" fill="var(--ink)">A · Median absolute slot-length deviation (seconds)</text>
+    <line x1="118" y1="270" x2="1243" y2="270" class="axis"/>
+    <line x1="118" y1="60" x2="118" y2="270" class="axis"/>
+    <g class="grid"><line x1="118" y1="270" x2="1243" y2="270"/><line x1="118" y1="200" x2="1243" y2="200"/><line x1="118" y1="130" x2="1243" y2="130"/><line x1="118" y1="60" x2="1243" y2="60"/></g>
+    <g class="tiny muted" text-anchor="end"><text x="105" y="274">0.00</text><text x="105" y="204">0.05</text><text x="105" y="134">0.10</text><text x="105" y="64">0.15</text></g>
+    <polyline points="180,211.2 340,188.8 500,236.4 660,265.8 820,270 980,89.4 1140,76.8" fill="none" stroke="var(--blue)" stroke-width="3"/>
+    <g fill="var(--paper)" stroke="var(--blue)" stroke-width="3"><circle cx="180" cy="211.2" r="7"/><circle cx="340" cy="188.8" r="7"/><circle cx="500" cy="236.4" r="7"/><circle cx="660" cy="265.8" r="7"/><circle cx="820" cy="270" r="7"/><circle cx="980" cy="89.4" r="7"/><circle cx="1140" cy="76.8" r="7"/></g>
+    <g class="tiny" fill="var(--blue)" text-anchor="middle"><text x="180" y="194">0.042</text><text x="340" y="171">0.058</text><text x="500" y="219">0.024</text><text x="660" y="248">0.003</text><text x="820" y="250">0.000</text><text x="980" y="72">0.129</text><text x="1140" y="59">0.138</text></g>
+
+    <text class="label" x="0" y="333" fill="var(--ink)">B · Cut points within 0.2 seconds (%)</text>
+    <line x1="118" y1="505" x2="1243" y2="505" class="axis"/><line x1="118" y1="347" x2="118" y2="505" class="axis"/>
+    <g class="grid"><line x1="118" y1="505" x2="1243" y2="505"/><line x1="118" y1="465.5" x2="1243" y2="465.5"/><line x1="118" y1="426" x2="1243" y2="426"/><line x1="118" y1="386.5" x2="1243" y2="386.5"/><line x1="118" y1="347" x2="1243" y2="347"/></g>
+    <g class="tiny muted" text-anchor="end"><text x="105" y="509">50</text><text x="105" y="469.5">60</text><text x="105" y="430">70</text><text x="105" y="390.5">80</text><text x="105" y="351">90</text></g>
+    <polyline points="180,390.45 340,398.35 500,386.5 660,374.65 820,378.6 980,461.55 1140,469.45" fill="none" stroke="var(--teal)" stroke-width="3"/>
+    <g fill="var(--teal)"><circle cx="180" cy="390.45" r="7"/><circle cx="340" cy="398.35" r="7"/><circle cx="500" cy="386.5" r="7"/><circle cx="660" cy="374.65" r="7"/><circle cx="820" cy="378.6" r="7"/><circle cx="980" cy="461.55" r="7"/><circle cx="1140" cy="469.45" r="7"/></g>
+    <g class="tiny" fill="var(--teal)" text-anchor="middle"><text x="180" y="378">79%</text><text x="340" y="386">77%</text><text x="500" y="374">80%</text><text x="660" y="362">83%</text><text x="820" y="366">82%</text><text x="980" y="449">61%</text><text x="1140" y="457">59%</text></g>
+    <g class="small" fill="var(--ink)" text-anchor="middle"><text x="180" y="535">2020</text><text x="340" y="535">2021</text><text x="500" y="535">2022</text><text x="660" y="535">2023</text><text x="820" y="535">2024</text><text x="980" y="535">2025</text><text x="1140" y="535">2026</text></g>
+    <g class="tiny muted" text-anchor="middle"><text x="180" y="558">n=2,002</text><text x="340" y="558">n=4,103</text><text x="500" y="558">n=3,169</text><text x="660" y="558">n=3,533</text><text x="820" y="558">n=4,713</text><text x="980" y="558">n=4,659</text><text x="1140" y="558">n=2,711</text></g>
+    <line x1="900" y1="57" x2="900" y2="505" stroke="var(--amber)" stroke-width="1.5" stroke-dasharray="5 6"/>
+  </svg></div>
+  <div class="caption"><span class="number">Figure 2.</span><span>Annual schedule-agreement results for the first-batch corpus: 24,890 non-anomalous cut points (24,944 total outputs; 54 clips longer than 120 s were flagged separately). The y-axis in panel B is restricted to 50–90% to show annual variation. These measures compare produced clip durations with scheduled market slot lengths; they do not estimate recall or replace frame-level human ground truth.</span><span class="source">Source: NaVVA v16 first-batch corpus · September 2026</span></div>
+</section>
+<script>
+  const n=new URLSearchParams(location.search).get('fig')||'1';
+  if(new URLSearchParams(location.search).get('theme')==='dark') document.body.classList.add('dark');
+  document.getElementById('fig'+n).classList.add('on');
+</script>
+<!-- Aggregate source: Academic/BFI_Computer/03_静音切片实验/2026-09-15_边界精度_实验主记录.md, section 6l. -->
+</body>
+</html>

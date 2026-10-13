@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1480,height=960,initial-scale=1">
+<title>NaVVA public data figures</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400..500&family=Space+Grotesk:wght@500;600&family=VT323&display=swap">
+<style>
+  :root{--bg:#070b0a;--surface:#0e1612;--ink:#e9f0eb;--soft:#9eb2a6;--green:#a5dfbd;--cyan:#52b7db;--blue:#829cff;--amber:#d8aa51;--red:#ed6b62;--line:#294539;--grid:#1c3329}
+  *{box-sizing:border-box}html,body{margin:0;width:1480px;height:960px;overflow:hidden;background:var(--bg)}
+  body{font-family:"IBM Plex Mono",monospace;color:var(--ink);background-image:repeating-linear-gradient(0deg,rgba(126,255,197,.045) 0,rgba(126,255,197,.045) 1px,transparent 1px,transparent 4px),radial-gradient(ellipse at 52% 0%,#17261f 0%,#070b0a 72%)}
+  body:after{content:"";position:fixed;inset:0;border:10px solid var(--line);box-shadow:inset 0 0 170px #000c;pointer-events:none}
+  .figure{display:none;width:1480px;height:960px;position:relative;padding:48px 72px 50px}.figure.on{display:block}
+  .osd{display:flex;justify-content:space-between;align-items:center;color:var(--amber);font:32px/1 "VT323",monospace;letter-spacing:.07em}.rec{color:var(--red)}.rec i{display:inline-block;width:15px;height:15px;border-radius:50%;background:currentColor;margin-right:12px}.ref{color:var(--soft);font:500 15px/1 "IBM Plex Mono",monospace;letter-spacing:.15em}
+  .head{margin-top:50px}.kicker{color:var(--cyan);font-size:16px;letter-spacing:.16em}.head h1{margin:17px 0 10px;color:var(--green);font:600 67px/.98 "Space Grotesk",sans-serif;letter-spacing:-.043em;text-shadow:0 0 28px #74e2a63d}.head p{margin:0;color:var(--ink);font:400 29px/1.25 "Newsreader",Georgia,serif;max-width:1150px}
+  .viz{position:absolute;left:72px;right:72px;top:337px;height:491px}.viz svg{width:100%;height:100%;overflow:visible}.viz text{font-family:"IBM Plex Mono",monospace}.lab{font-size:15px;letter-spacing:.13em}.tiny{font-size:12px;letter-spacing:.08em}.small{font-size:16px;letter-spacing:.07em}.muted{fill:var(--soft)}
+  .foot{position:absolute;left:72px;right:72px;bottom:38px;display:flex;justify-content:space-between;color:var(--soft);font-size:13px;letter-spacing:.11em}.foot b{color:var(--amber);font-weight:500}
+  .ring{fill:#0a100d;stroke:var(--line);stroke-width:3}.guide{fill:none;stroke:var(--grid);stroke-width:1}.glow{filter:url(#glow)}.num{font-family:"Space Grotesk",sans-serif!important;font-weight:600;letter-spacing:-.05em}.hair{fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.arc{fill:none;stroke-linecap:round}.panel{fill:#0c1310;stroke:var(--line);stroke-width:2}.tick{stroke:var(--soft);stroke-width:1}.dash{stroke-dasharray:5 8}
+</style>
+</head>
+<body>
+<section class="figure" id="fig1" aria-label="Full corpus scale and method">
+  <div class="osd"><span class="rec"><i></i>REC &nbsp; DATA RUN &nbsp; SP</span><span class="ref">NaVVA · FULL-CORPUS RUN</span><span>V16 / 25 FPS</span></div>
+  <div class="head"><div class="kicker">A BROADCAST ARCHIVE BECOMES A MEASURABLE CORPUS</div><h1>1,670 recordings → 24,944 cut points</h1><p>Schedule, sound and picture are combined at archive scale—without hiding how each boundary was produced.</p></div>
+  <div class="viz"><svg viewBox="0 0 1336 491" role="img" aria-label="1,670 recordings across seven years and thirteen channels produced 24,944 traceable cut points">
+    <defs><filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><radialGradient id="reel" cx="50%" cy="45%"><stop offset="0" stop-color="#17271f"/><stop offset="1" stop-color="#080d0b"/></radialGradient></defs>
+    <path class="guide dash" d="M270 238H450M886 238h180"/><path class="guide" d="M0 450H1336"/>
+    <rect class="panel" x="0" y="24" width="288" height="392" rx="10"/>
+    <text class="lab" x="30" y="62" fill="var(--amber)">INPUT SCALE</text>
+    <text class="num" x="30" y="139" font-size="63" fill="var(--ink)">1,670</text><text class="small muted" x="33" y="166">SOURCE RECORDINGS</text>
+    <line x1="30" y1="194" x2="258" y2="194" class="guide"/>
+    <text class="num" x="30" y="264" font-size="55" fill="var(--cyan)">7</text><text class="small" x="91" y="255" fill="var(--cyan)">YEARS</text><text class="tiny muted" x="92" y="277">2020—2026</text>
+    <line x1="30" y1="302" x2="258" y2="302" class="guide"/>
+    <text class="num" x="30" y="372" font-size="55" fill="var(--blue)">13</text><text class="small" x="112" y="363" fill="var(--blue)">CHANNELS</text><text class="tiny muted" x="113" y="385">ONE PIPELINE</text>
+
+    <circle cx="668" cy="230" r="190" fill="url(#reel)" stroke="var(--line)" stroke-width="3"/>
+    <circle cx="668" cy="230" r="158" fill="none" stroke="#d8aa5138" stroke-width="3" stroke-dasharray="2 10"/>
+    <circle cx="668" cy="230" r="126" fill="none" stroke="#52b7db44" stroke-width="18"/>
+    <path class="arc glow" stroke="var(--cyan)" stroke-width="18" d="M559 167A126 126 0 0 1 758 142"/>
+    <path class="arc glow" stroke="var(--blue)" stroke-width="18" d="M792 208A126 126 0 0 1 710 349"/>
+    <path class="arc glow" stroke="var(--amber)" stroke-width="18" d="M628 350A126 126 0 0 1 544 247"/>
+    <circle cx="668" cy="230" r="86" fill="#080d0b" stroke="var(--green)" stroke-width="3"/>
+    <text class="num" x="668" y="223" text-anchor="middle" font-size="41" fill="var(--green)">24,944</text><text class="tiny" x="668" y="255" text-anchor="middle" fill="var(--green)">CUT POINTS PRODUCED</text>
+    <text class="tiny" x="520" y="104" fill="var(--amber)">SCHEDULE</text><text class="tiny" x="802" y="136" fill="var(--cyan)">AUDIO</text><text class="tiny" x="782" y="344" fill="var(--blue)">PICTURE</text>
+    <path d="M478 93C443 122 426 163 424 204" class="hair" stroke="var(--amber)"/><path d="M859 116C900 143 916 178 916 209" class="hair" stroke="var(--cyan)"/><path d="M837 363C870 347 889 326 902 300" class="hair" stroke="var(--blue)"/>
+    <text class="lab" x="668" y="457" text-anchor="middle" fill="var(--soft)">EVERY OUTPUT RETAINS A PROCESSING-LEDGER TRACE</text>
+
+    <rect class="panel" x="1048" y="24" width="288" height="392" rx="10"/>
+    <text class="lab" x="1078" y="62" fill="var(--amber)">SCHEDULE AGREEMENT</text>
+    <text class="num" x="1078" y="139" font-size="59" fill="var(--green)">0.041 s</text><text class="small muted" x="1081" y="166">MEDIAN DEVIATION</text><text class="tiny muted" x="1081" y="187">≈ 1 FRAME AT 25 FPS</text>
+    <line x1="1078" y1="214" x2="1306" y2="214" class="guide"/>
+    <text class="num" x="1078" y="290" font-size="59" fill="var(--cyan)">74%</text><text class="small muted" x="1081" y="318">WITHIN 0.2 SECONDS</text>
+    <path d="M1080 356H1304" stroke="#52b7db30" stroke-width="13" stroke-linecap="round"/><path d="M1080 356H1246" stroke="var(--cyan)" stroke-width="13" stroke-linecap="round"/><circle cx="1246" cy="356" r="7" fill="var(--cyan)"/>
+    <text class="tiny muted" x="1080" y="389">FULL DELIVERED CORPUS</text>
+  </svg></div>
+  <div class="foot"><span><b>NaVVA</b> &nbsp; KING'S COLLEGE LONDON × BRITISH FILM INSTITUTE</span><span>V16 AGGREGATE · SLOT-LENGTH AGREEMENT, NOT FRAME-LEVEL GROUND TRUTH</span></div>
+</section>
+
+<section class="figure" id="fig2" aria-label="Public schedule-agreement audit">
+  <div class="osd"><span class="rec"><i></i>REC &nbsp; AUDIT &nbsp; SP</span><span class="ref">NaVVA · AGGREGATE RESULTS</span><span>LEDGER ON</span></div>
+  <div class="head"><div class="kicker">PRECISION, WITH THE FAILURE MODES LEFT VISIBLE</div><h1>A result you can inspect—not just admire</h1><p>Three aggregate measures show the scale, agreement and exceptions of the full-corpus run.</p></div>
+  <div class="viz"><svg viewBox="0 0 1336 491" role="img" aria-label="The audit reports a 0.041 second median deviation, 74 percent within 0.2 seconds, and 54 long-clip anomalies flagged">
+    <defs><filter id="glow2" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+    <text class="lab" x="220" y="30" text-anchor="middle" fill="var(--green)">MEDIAN DEVIATION</text><text class="lab" x="668" y="30" text-anchor="middle" fill="var(--cyan)">WITHIN 0.2 SECONDS</text><text class="lab" x="1116" y="30" text-anchor="middle" fill="var(--amber)">EXCEPTIONS FLAGGED</text>
+    <circle class="ring" cx="220" cy="230" r="154"/><circle cx="220" cy="230" r="120" fill="none" stroke="#a5dfbd26" stroke-width="18"/>
+    <path d="M112 273A120 120 0 0 1 320 164" class="arc" stroke="var(--green)" stroke-width="18"/>
+    <line x1="111" y1="278" x2="126" y2="271" class="tick"/><line x1="328" y1="158" x2="313" y2="166" class="tick"/>
+    <text class="num" x="220" y="228" text-anchor="middle" font-size="58" fill="var(--green)">0.041</text><text class="small" x="220" y="260" text-anchor="middle" fill="var(--green)">SECONDS</text><text class="tiny muted" x="220" y="291" text-anchor="middle">≈ ONE FRAME · 25 FPS</text>
+    <path d="M374 230H438" stroke="var(--line)" stroke-width="2"/><path d="M427 219l12 11-12 11" fill="none" stroke="var(--line)" stroke-width="2"/>
+
+    <circle class="ring" cx="668" cy="230" r="154"/><circle cx="668" cy="230" r="120" fill="none" stroke="#52b7db26" stroke-width="22"/>
+    <circle cx="668" cy="230" r="120" fill="none" stroke="var(--cyan)" stroke-width="22" stroke-linecap="round" pathLength="100" stroke-dasharray="74 26" transform="rotate(-90 668 230)" filter="url(#glow2)"/>
+    <text class="num" x="668" y="239" text-anchor="middle" font-size="78" fill="var(--cyan)">74%</text><text class="tiny muted" x="668" y="278" text-anchor="middle">18,000+ CUT POINTS</text>
+    <path d="M822 230H886" stroke="var(--line)" stroke-width="2"/><path d="M875 219l12 11-12 11" fill="none" stroke="var(--line)" stroke-width="2"/>
+
+    <circle class="ring" cx="1116" cy="230" r="154"/><circle cx="1116" cy="230" r="120" fill="none" stroke="#d8aa5128" stroke-width="18" stroke-dasharray="3 9"/>
+    <path d="M1116 110V350" stroke="var(--line)" stroke-width="2"/><path d="M996 230H1236" stroke="var(--line)" stroke-width="2"/>
+    <text class="num" x="1116" y="210" text-anchor="middle" font-size="65" fill="var(--amber)">54</text><text class="small" x="1116" y="244" text-anchor="middle" fill="var(--amber)">LONG-CLIP FLAGS</text><text class="tiny muted" x="1116" y="272" text-anchor="middle">0.2% · RETAINED FOR REVIEW</text>
+    <path d="M1044 319l23-13 21 8 25-34 18 25 22-9 33 5" fill="none" stroke="var(--amber)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="1113" cy="280" r="8" fill="var(--red)" filter="url(#glow2)"/>
+
+    <rect x="92" y="410" width="1152" height="47" rx="23.5" fill="#0e1713" stroke="var(--line)" stroke-width="2"/>
+    <circle cx="126" cy="433.5" r="6" fill="var(--green)"/><text class="tiny" x="148" y="438" fill="var(--soft)">THE AUDIT MEASURES AGREEMENT WITH SCHEDULED ADVERT SLOT LENGTHS; FRAME-LEVEL GROUND TRUTH REMAINS A SEPARATE VALIDATION TASK.</text>
+  </svg></div>
+  <div class="foot"><span><b>NaVVA</b> &nbsp; KING'S COLLEGE LONDON × BRITISH FILM INSTITUTE</span><span>1,670 RECORDINGS · 24,944 CUT POINTS · AGGREGATE DATA ONLY</span></div>
+</section>
+<script>
+  const n=new URLSearchParams(location.search).get('fig')||'1';
+  document.getElementById('fig'+n).classList.add('on');
+</script>
+<!-- Provenance: Academic/BFI_Computer/03_静音切片实验/2026-09-15_边界精度_实验主记录.md, section 6l. Metrics are aggregate v16 results. -->
+</body>
+</html>

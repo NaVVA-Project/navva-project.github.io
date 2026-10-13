@@ -77,7 +77,11 @@
   .label { font: 500 0.7rem var(--mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); }
 
   .topbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-block: 14px; }
-  .pill { font: 500 0.72rem var(--mono); letter-spacing: 0.06em; border: 1px solid var(--line-strong); background: transparent; color: var(--ink-soft); border-radius: 2px; padding: 4px 10px; cursor: pointer; }
+  .theme-switch { display: inline-flex; border: 1px solid var(--line-strong); border-radius: 2px; overflow: hidden; }
+  .theme-option { font: 500 0.68rem var(--mono); letter-spacing: 0.06em; border: 0; border-right: 1px solid var(--line-strong); background: transparent; color: var(--ink-soft); padding: 5px 8px; cursor: pointer; }
+  .theme-option:last-child { border-right: 0; }
+  .theme-option[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+  .theme-option:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 
   /* masthead: a dossier sheet in light, a monitor in dark */
   .screen { --bg: var(--scr-bg); --soft: var(--scr-soft); --title: var(--scr-accent); position: relative; background: var(--scr-bg); color: var(--scr-ink); border: var(--scr-bw) solid var(--scr-border); border-top: max(3px, var(--scr-bw)) solid var(--scr-border-top); overflow: hidden;
@@ -120,7 +124,11 @@
 <div class="wrap">
   <div class="topbar">
     <span class="label">NaVVA · KCL × BFI</span>
-    <button class="pill" id="theme" type="button" aria-label="Switch colour theme">THEME</button>
+    <div class="theme-switch" role="group" aria-label="Colour theme">
+      <button class="theme-option" type="button" data-theme-mode="light" aria-pressed="false">LIGHT</button>
+      <button class="theme-option" type="button" data-theme-mode="auto" aria-pressed="true">AUTO</button>
+      <button class="theme-option" type="button" data-theme-mode="dark" aria-pressed="false">DARK</button>
+    </div>
   </div>
 
   <header class="screen">
@@ -200,11 +208,28 @@
 <script>
   (function () {
     var root = document.documentElement, key = "navva-theme";
-    try { var saved = localStorage.getItem(key); if (saved) root.dataset.theme = saved; } catch (e) {}
-    document.getElementById("theme").addEventListener("click", function () {
-      var dark = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
-      root.dataset.theme = dark ? "light" : "dark";
-      try { localStorage.setItem(key, root.dataset.theme); } catch (e) {}
+    var buttons = document.querySelectorAll("[data-theme-mode]");
+    var saved = null;
+
+    try { saved = localStorage.getItem(key); } catch (e) {}
+
+    function setTheme(mode) {
+      if (mode === "auto") {
+        delete root.dataset.theme;
+        try { localStorage.removeItem(key); } catch (e) {}
+      } else {
+        root.dataset.theme = mode;
+        try { localStorage.setItem(key, mode); } catch (e) {}
+      }
+
+      buttons.forEach(function (button) {
+        button.setAttribute("aria-pressed", button.dataset.themeMode === mode ? "true" : "false");
+      });
+    }
+
+    setTheme(saved === "light" || saved === "dark" ? saved : "auto");
+    buttons.forEach(function (button) {
+      button.addEventListener("click", function () { setTheme(button.dataset.themeMode); });
     });
   })();
   (function (svg) {

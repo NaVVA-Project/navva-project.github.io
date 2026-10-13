@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1480,height=960,initial-scale=1">
+<title>NaVVA public figures</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400..500&family=Space+Grotesk:wght@500;600&family=VT323&display=swap">
+<style>
+  :root{--bg:#080c0b;--surface:#101713;--ink:#e5eee7;--soft:#9fb2a6;--green:#a6dfbf;--cyan:#55b5d9;--blue:#809dff;--amber:#d3a54f;--red:#f06a61;--line:#284438;--grid:#20342b}
+  *{box-sizing:border-box}html,body{margin:0;width:1480px;height:960px;overflow:hidden;background:var(--bg)}body{font-family:"IBM Plex Mono",monospace;color:var(--ink);background-image:repeating-linear-gradient(0deg,rgba(126,255,197,.045) 0,rgba(126,255,197,.045) 1px,transparent 1px,transparent 4px),radial-gradient(ellipse at 50% 0%,#17251f 0%,#080c0b 72%)}
+  body:after{content:"";position:fixed;inset:0;border:10px solid var(--line);box-shadow:inset 0 0 150px #000b;pointer-events:none}
+  .figure{display:none;width:1480px;height:960px;position:relative;padding:48px 72px 50px}.figure.on{display:block}
+  .osd{display:flex;justify-content:space-between;align-items:center;color:var(--amber);font:32px/1 "VT323",monospace;letter-spacing:.07em}.rec{color:var(--red)}.rec i{display:inline-block;width:15px;height:15px;border-radius:50%;background:currentColor;margin-right:12px}.ref{color:var(--soft);font:500 15px/1 "IBM Plex Mono",monospace;letter-spacing:.15em}
+  .head{margin-top:56px}.kicker{color:var(--cyan);font-size:16px;letter-spacing:.16em}.head h1{margin:17px 0 12px;color:var(--green);font:600 74px/.98 "Space Grotesk",sans-serif;letter-spacing:-.045em;text-shadow:0 0 28px #74e2a63d}.head p{margin:0;color:var(--ink);font:400 31px/1.25 "Newsreader",Georgia,serif;max-width:1100px}
+  .viz{position:absolute;left:72px;right:72px;top:356px;height:480px}.viz svg{width:100%;height:100%;overflow:visible}.viz text{font-family:"IBM Plex Mono",monospace}.lab{font-size:15px;letter-spacing:.13em}.tiny{font-size:13px;letter-spacing:.1em}.small{font-size:16px;letter-spacing:.08em}.muted{fill:var(--soft)}
+  .foot{position:absolute;left:72px;right:72px;bottom:39px;display:flex;justify-content:space-between;color:var(--soft);font-size:14px;letter-spacing:.13em}.foot b{color:var(--amber);font-weight:500}
+  .lane{fill:none;stroke-linecap:round;stroke-linejoin:round}.lane-soft{fill:none;stroke-linecap:round;opacity:.16}.cut{stroke:var(--green);stroke-width:3}.guide{stroke:var(--grid);stroke-width:1}.node{fill:var(--bg);stroke-width:3}.pulse{fill:none;stroke:var(--cyan);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}.ruler{fill:none;stroke:var(--amber);stroke-width:3}.frame{fill:none;stroke:var(--blue);stroke-width:3}.glow{filter:url(#glow)}
+  .ring{fill:#0b100e;stroke-width:3}.arc{fill:none;stroke-linecap:round;stroke-width:17}.arc-thin{fill:none;stroke-linecap:round;stroke-width:3}.dash{stroke-dasharray:8 10}.centerline{stroke:var(--grid);stroke-width:2}.gate{fill:#0b100e;stroke:var(--amber);stroke-width:3}.cross{stroke:var(--red);stroke-width:4;stroke-linecap:round}.check{fill:none;stroke:var(--green);stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+</style>
+</head>
+<body>
+<section class="figure" id="fig1" aria-label="Three signals, one cut">
+  <div class="osd"><span class="rec"><i></i>REC &nbsp; PLAY &nbsp; SP</span><span class="ref">NaVVA · METHOD FIGURE 01</span><span>2016–2026</span></div>
+  <div class="head"><div class="kicker">FROM CONTINUOUS BROADCAST TO RESEARCH CORPUS</div><h1>Three signals, one cut</h1><p>The schedule narrows the search. Sound locates the boundary. Picture sharpens the frame.</p></div>
+  <div class="viz"><svg viewBox="0 0 1336 480" role="img" aria-label="Schedule, audio and picture signals converge on one cut point">
+    <defs><filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><linearGradient id="fade" x1="0" x2="1"><stop offset="0" stop-color="#55b5d9" stop-opacity=".08"/><stop offset=".52" stop-color="#55b5d9" stop-opacity=".34"/><stop offset="1" stop-color="#a6dfbf" stop-opacity=".08"/></linearGradient></defs>
+    <line class="guide" x1="0" y1="110" x2="1336" y2="110"/><line class="guide" x1="0" y1="238" x2="1336" y2="238"/><line class="guide" x1="0" y1="366" x2="1336" y2="366"/>
+    <text class="lab" x="0" y="42" fill="var(--amber)">SCHEDULE</text><text class="tiny muted" x="0" y="66">WHERE THE BREAK SHOULD BE</text>
+    <text class="lab" x="0" y="170" fill="var(--cyan)">AUDIO</text><text class="tiny muted" x="0" y="194">WHERE SPEECH FALLS SILENT</text>
+    <text class="lab" x="0" y="298" fill="var(--blue)">PICTURE</text><text class="tiny muted" x="0" y="322">WHERE THE NEW IMAGE BEGINS</text>
+    <path class="lane-soft" stroke="var(--amber)" stroke-width="22" d="M220 92H1118"/><path class="ruler" d="M220 92H1118M404 73V111M698 65V119M942 73V111"/>
+    <circle class="node" stroke="var(--amber)" cx="404" cy="92" r="9"/><circle class="node" stroke="var(--amber)" cx="698" cy="92" r="12"/><circle class="node" stroke="var(--amber)" cx="942" cy="92" r="9"/>
+    <path class="lane-soft" stroke="var(--cyan)" stroke-width="22" d="M220 220H1118"/><path class="pulse" d="M220 220l15-34 13 68 16-49 15 23 14-8 16 0 15 0 15 0 15 0 17 0 15 0 15 0 15 0 17 0 15 0 15 0 18 0 18 0 16 0 16 0 16 0 15 0 16 0 14-6 15 18 16-41 15 66 16-26 17 9 16-4 18 0 17 0 18 0 18 0 16 0 16 0 15-15 16 33 14-60 16 83 18-41 18 12"/>
+    <ellipse cx="698" cy="220" rx="118" ry="47" fill="url(#fade)" stroke="var(--cyan)" stroke-width="2" stroke-dasharray="7 8"/><text class="small" x="698" y="226" text-anchor="middle" fill="var(--cyan)">SILENCE WINDOW</text>
+    <path class="lane-soft" stroke="var(--blue)" stroke-width="22" d="M220 348H1118"/><path class="frame" d="M220 348H584C621 348 631 305 670 305H700C736 305 750 348 788 348H1118"/>
+    <circle class="node glow" stroke="var(--blue)" cx="700" cy="305" r="13"/><text class="small" x="730" y="298" fill="var(--blue)">FIRST VISIBLE CHANGE</text>
+    <path d="M698 119C698 142 698 154 698 170M698 267C698 285 700 290 700 292" stroke="var(--green)" stroke-width="2" stroke-dasharray="4 6"/>
+    <line class="cut glow" x1="698" y1="48" x2="698" y2="398"/><circle cx="698" cy="398" r="25" fill="#a6dfbf22" stroke="var(--green)" stroke-width="3"/><circle cx="698" cy="398" r="7" fill="var(--green)"/>
+    <text class="lab" x="698" y="444" text-anchor="middle" fill="var(--green)">CUT POINT · TRACEABLE TO ALL THREE SIGNALS</text>
+    <path d="M1138 74C1255 74 1264 122 1264 164V332C1264 374 1228 397 1168 397" fill="none" stroke="var(--green)" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="1163" cy="397" r="40" fill="#101713" stroke="var(--green)" stroke-width="3"/><path d="M1148 397l11 11 22-26" class="check"/><text class="tiny" x="1163" y="457" text-anchor="middle" fill="var(--soft)">LEDGER RECORDS WHY</text>
+  </svg></div>
+  <div class="foot"><span><b>NaVVA</b> &nbsp; KING'S COLLEGE LONDON × BRITISH FILM INSTITUTE</span><span>CONCEPTUAL ILLUSTRATION · NO ARCHIVE FOOTAGE SHOWN</span></div>
+</section>
+
+<section class="figure" id="fig2" aria-label="When the signals disagree">
+  <div class="osd"><span class="rec"><i></i>REC &nbsp; PLAY &nbsp; SP</span><span class="ref">NaVVA · METHOD FIGURE 02</span><span>GUARD ACTIVE</span></div>
+  <div class="head"><div class="kicker">A METHOD THAT CAN SAY WHEN NOT TO MOVE</div><h1>When the signals disagree</h1><p>The picture proposes a later cut. The audio guard decides whether that move is credible.</p></div>
+  <div class="viz"><svg viewBox="0 0 1336 480" role="img" aria-label="The audio guard rejects a late picture change and keeps the original boundary">
+    <defs><filter id="glow2" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+    <text class="lab" x="258" y="32" text-anchor="middle" fill="var(--blue)">PICTURE PROPOSES</text><text class="lab" x="668" y="32" text-anchor="middle" fill="var(--amber)">AUDIO CHECKS</text><text class="lab" x="1078" y="32" text-anchor="middle" fill="var(--green)">CUT RESOLVES</text>
+    <circle class="ring" stroke="var(--line)" cx="258" cy="225" r="142"/><circle class="ring" stroke="var(--line)" cx="668" cy="225" r="142"/><circle class="ring" stroke="var(--line)" cx="1078" cy="225" r="142"/>
+    <circle class="arc" stroke="#809dff33" cx="258" cy="225" r="105"/><path class="arc" stroke="var(--blue)" d="M258 120A105 105 0 0 1 349 277"/><path class="arc-thin dash" stroke="var(--red)" d="M258 120A105 105 0 0 1 349 277"/>
+    <line class="centerline" x1="258" y1="115" x2="258" y2="335"/><line x1="258" y1="225" x2="338" y2="277" stroke="var(--blue)" stroke-width="5" stroke-linecap="round"/><circle cx="338" cy="277" r="11" fill="var(--blue)" filter="url(#glow2)"/>
+    <text class="small" x="258" y="214" text-anchor="middle" fill="var(--ink)">LATE IMAGE CHANGE</text><text class="tiny muted" x="258" y="245" text-anchor="middle">MOVE WOULD LAND INSIDE THE ADVERT</text>
+    <path d="M418 225H492" stroke="var(--red)" stroke-width="3"/><path d="M481 214l12 11-12 11" fill="none" stroke="var(--red)" stroke-width="3"/>
+    <circle class="arc" stroke="#d3a54f33" cx="668" cy="225" r="105"/><path class="pulse" d="M570 225l12-24 12 48 13-37 12 13h34 28 22l12-10 13 24 13-49 12 65 13-30h20"/>
+    <path class="gate" d="M643 165h50l18 60-18 60h-50l-18-60z"/><line class="cross" x1="648" y1="205" x2="688" y2="245"/><line class="cross" x1="688" y1="205" x2="648" y2="245"/>
+    <text class="small" x="668" y="331" text-anchor="middle" fill="var(--amber)">SOUND HAS ALREADY RETURNED</text><text class="tiny muted" x="668" y="355" text-anchor="middle">PROPOSED MOVE REJECTED</text>
+    <path d="M844 225H918" stroke="var(--green)" stroke-width="3"/><path d="M907 214l12 11-12 11" fill="none" stroke="var(--green)" stroke-width="3"/>
+    <circle class="arc" stroke="#a6dfbf2e" cx="1078" cy="225" r="105"/><line class="centerline" x1="1078" y1="115" x2="1078" y2="335"/><line x1="1078" y1="130" x2="1078" y2="320" stroke="var(--green)" stroke-width="5" filter="url(#glow2)"/><circle cx="1078" cy="225" r="18" fill="#a6dfbf22" stroke="var(--green)" stroke-width="3"/><circle cx="1078" cy="225" r="6" fill="var(--green)"/>
+    <path class="check" d="M1032 225l29 29 64-73"/><text class="small" x="1078" y="382" text-anchor="middle" fill="var(--green)">ORIGINAL BOUNDARY KEPT</text>
+    <text class="lab" x="668" y="448" text-anchor="middle" fill="var(--soft)">PICTURE PROPOSES · AUDIO CONSTRAINS · THE LEDGER REMEMBERS</text>
+  </svg></div>
+  <div class="foot"><span><b>NaVVA</b> &nbsp; KING'S COLLEGE LONDON × BRITISH FILM INSTITUTE</span><span>CONCEPTUAL ILLUSTRATION · NO ARCHIVE FOOTAGE SHOWN</span></div>
+</section>
+<script>
+  const n=new URLSearchParams(location.search).get('fig')||'1';
+  document.getElementById('fig'+n).classList.add('on');
+</script>
+</body>
+</html>
