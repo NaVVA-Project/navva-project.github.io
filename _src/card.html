@@ -1,57 +1,77 @@
 <!doctype html>
 <!-- Source for assets/navva_card.png. Render at 1480x960:
      chrome --headless --screenshot=navva_card.png --window-size=1480,960 --hide-scrollbars card.html
-     Add ?v=b for the grotesque caption variant. -->
+     Add ?t=paper for the archival dossier version. -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Fraunces:opsz,wght@9..144,300..500&family=IBM+Plex+Mono:wght@400;500&family=VT323&display=swap">
 <style>
+  :root { --bg: #080c0b; --ink: #e5eee7; --soft: #a9b8ae; --title: #a6dfbf; --brass: #d3a54f; --rec: #f06a61; --machine: #55b5d9; --human: #dd7cba; --off: #101713; --offl: #2c3d34;
+    --p0: #c9c9c2; --p1: #c4bb4e; --p2: #55b5b0; --p3: #5fae62; --p4: #a65c9e; --p5: #b9504a; --p6: #4a5fae; --p7: #a6dfbf; }
+  .paper { --bg: #fbf6ea; --ink: #382b22; --soft: #6f5c4b; --title: #571c28; --brass: #805f26; --rec: #712936; --machine: #2d6692; --human: #8d3f70; --off: #f2e9d7; --offl: #d1c0a5;
+    --p0: #aa9270; --p1: #805f26; --p2: #2d6692; --p3: #66733b; --p4: #8d3f70; --p5: #9a3e32; --p6: #712936; --p7: #6f5c4b; }
+  body.paper { background: #f2e9d7; }
+  body.paper::after { inset: 34px; border: 1px solid #aa9270; border-top: 6px solid #712936; box-shadow: none; }
+  body.paper::before { content: ""; position: absolute; inset: 34px; background: #fbf6ea; z-index: -1; }
+  .paper .osd { font: 500 22px/1 "IBM Plex Mono", monospace; letter-spacing: 0.14em; top: 62px; }
+  .paper .rec i { display: none; } .paper h1 { text-shadow: none; }
+  .paper .title { border-left: 6px double #712936; padding-left: 34px; }
   html, body { margin: 0; width: 1480px; height: 960px; overflow: hidden; }
-  body { background: #080c0b; color: #e5eee7; font-family: "IBM Plex Mono", monospace; position: relative;
+  body { background: var(--bg); color: var(--ink); z-index: 0; font-family: "IBM Plex Mono", monospace; position: relative;
     background-image: repeating-linear-gradient(0deg, rgba(126,255,197,0.05) 0, rgba(126,255,197,0.05) 2px, transparent 2px, transparent 5px), radial-gradient(ellipse at 50% 0%, #1a2b24 0%, #080c0b 72%); }
   body::after { content: ""; position: absolute; inset: 0; border: 10px solid #284438; box-shadow: inset 0 0 180px rgba(0,0,0,0.7); pointer-events: none; }
-  /* test-card geometry behind the title */
-  .card { position: absolute; inset: 0; width: 100%; height: 100%; }
   .osd { position: absolute; top: 44px; left: 80px; right: 80px; display: flex; justify-content: space-between; font: 400 44px/1 "VT323", monospace; letter-spacing: 0.06em; }
-  .rec { color: #f06a61; } .rec i { display: inline-block; width: 20px; height: 20px; border-radius: 50%; background: currentColor; margin-right: 14px; }
-  .tc { color: #d3a54f; }
-  .title { position: absolute; top: 208px; left: 130px; right: 130px; }
-  .label { font-size: 20px; letter-spacing: 0.14em; text-transform: uppercase; color: #a9b8ae; }
-  h1 { font: 400 104px/1.04 "Fraunces", Georgia, serif; font-variation-settings: "opsz" 144; letter-spacing: -0.012em; color: #a6dfbf; text-shadow: 0 0 30px rgba(116,226,166,0.28); margin: 30px 0 34px; }
-  h1 em { font-style: normal; color: #e5eee7; }
-  .dek { font: 300 38px/1.3 "Fraunces", Georgia, serif; font-variation-settings: "opsz" 36; color: #e5eee7; margin: 0; }
-  .b h1 { font: 800 78px/1.06 "Archivo", sans-serif; font-stretch: 112%; text-transform: uppercase; letter-spacing: 0.005em; }
-  .b .dek { font: 400 34px/1.3 "Archivo", sans-serif; font-stretch: 100%; }
-  .bars { position: absolute; left: 80px; right: 80px; bottom: 122px; }
-  .bars div { display: flex; } .bars span { flex: 1; }
-  .bars .main { height: 84px; } .bars .sub { height: 16px; }
-  .foot { position: absolute; bottom: 54px; left: 80px; right: 80px; display: flex; justify-content: space-between; font-size: 20px; letter-spacing: 0.14em; color: #a9b8ae; }
-  .foot b { color: #d3a54f; font-weight: 500; }
+  .rec { color: var(--rec); } .rec i { display: inline-block; width: 20px; height: 20px; border-radius: 50%; background: currentColor; margin-right: 14px; }
+  .tc { color: var(--brass); }
+  .title { position: absolute; top: 132px; left: 80px; right: 80px; }
+  .label { font-size: 20px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--soft); }
+  h1 { font: 400 100px/1.04 "Fraunces", Georgia, serif; font-variation-settings: "opsz" 144; letter-spacing: -0.012em; color: var(--title); text-shadow: 0 0 30px rgba(116,226,166,0.28); margin: 22px 0 26px; }
+  .dek { font: 300 36px/1.3 "Fraunces", Georgia, serif; font-variation-settings: "opsz" 36; color: var(--ink); margin: 0; }
+  .b h1 { font: 800 76px/1.06 "Archivo", sans-serif; font-stretch: 112%; text-transform: uppercase; letter-spacing: 0.005em; }
+  .b .dek { font: 400 34px/1.3 "Archivo", sans-serif; }
+  .wall { position: absolute; left: 80px; right: 80px; bottom: 112px; }
+  .wall svg { width: 100%; display: block; overflow: visible; }
+  .wall text { font-family: "IBM Plex Mono", monospace; font-size: 15px; letter-spacing: 0.12em; }
+  .foot { position: absolute; bottom: 50px; left: 80px; right: 80px; display: flex; justify-content: space-between; font-size: 20px; letter-spacing: 0.14em; color: var(--soft); }
+  .foot b { color: var(--brass); font-weight: 500; }
 </style>
 </head>
 <body>
-  <svg class="card" viewBox="0 0 1480 960" aria-hidden="true">
-    <g stroke="#1f3028" stroke-width="1.5" fill="none">
-      <path d="M80 160H1400M80 240H1400M80 320H1400M80 400H1400M80 480H1400M80 560H1400M80 640H1400M80 720H1400"/>
-      <path d="M180 110V740M260 110V740M340 110V740M420 110V740M500 110V740M580 110V740M660 110V740M740 110V740M820 110V740M900 110V740M980 110V740M1060 110V740M1140 110V740M1220 110V740M1300 110V740"/>
-    </g>
-    <circle cx="740" cy="440" r="318" fill="none" stroke="#35503f" stroke-width="2.5"/>
-    <g stroke="#486054" stroke-width="2.5" fill="none">
-      <path d="M80 156V110H126M1354 110H1400V156"/>
-    </g>
-  </svg>
   <div class="osd"><span class="rec"><i></i>REC</span><span class="tc">2016–2026</span></div>
   <div class="title">
     <span class="label">AHRC Collaborative Doctoral Partnership</span>
     <h1>From Narratives of Value to Valuable Algorithms</h1>
     <p class="dek">A decade of promotional screen culture in the UK, seen by machine</p>
   </div>
-  <div class="bars">
-    <div class="main"><span style="background:#c9c9c2"></span><span style="background:#c4bb4e"></span><span style="background:#55b5b0"></span><span style="background:#5fae62"></span><span style="background:#a65c9e"></span><span style="background:#b9504a"></span><span style="background:#4a5fae"></span></div>
-    <div class="sub"><span style="background:#4a5fae"></span><span style="background:#101614"></span><span style="background:#a65c9e"></span><span style="background:#101614"></span><span style="background:#55b5b0"></span><span style="background:#101614"></span><span style="background:#c9c9c2"></span></div>
-  </div>
+  <div class="wall"><svg id="wall" viewBox="0 0 1320 250"></svg></div>
   <div class="foot"><span><b>NaVVA</b> &nbsp; KING'S COLLEGE LONDON × BRITISH FILM INSTITUTE</span><span>PHD PROJECT 2025–2029</span></div>
-  <script>if (location.search.indexOf("v=b") > -1) document.body.classList.add("b");</script>
+  <script>
+    if (location.search.indexOf("v=b") > -1) document.body.classList.add("b");
+    if (location.search.indexOf("t=paper") > -1) { document.body.classList.add("paper"); document.querySelector(".rec").lastChild.textContent = "ARCHIVE FILE"; }
+    // A wall of abstract screens: left of the scan line the machine has described them,
+    // right of it they are still unread; one screen is pulled out for close reading.
+    (function (svg) {
+      var pal = [0, 1, 2, 3, 4, 5, 6, 7].map(function (i) { return "var(--p" + i + ")"; });
+      var cols = 30, rows = 7, pw = 44, ph = 26, fw = 40, fh = 22, top = 34, scan = 19, pick = [8, 3], s = 7, h = "";
+      function rnd() { s = (s * 16807) % 2147483647; return s / 2147483647; }
+      h += '<defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" style="stop-color:var(--machine)" stop-opacity="0"/><stop offset="1" style="stop-color:var(--machine)" stop-opacity="0.3"/></linearGradient></defs>';
+      for (var r = 0; r < rows; r++) for (var c = 0; c < cols; c++) {
+        var x = c * pw + 2, y = top + r * ph, col = pal[Math.floor(rnd() * pal.length)], o = (0.3 + rnd() * 0.6).toFixed(2);
+        h += c < scan ? '<rect x="' + x + '" y="' + y + '" width="' + fw + '" height="' + fh + '" fill="' + col + '" fill-opacity="' + o + '"/>'
+                      : '<rect x="' + x + '" y="' + y + '" width="' + fw + '" height="' + fh + '" fill="var(--off)" stroke="var(--offl)"/>';
+      }
+      var sx = scan * pw, bottom = top + rows * ph - 4, px = pick[0] * pw + 2, py = top + pick[1] * ph;
+      h += '<rect x="' + (sx - 110) + '" y="' + (top - 6) + '" width="110" height="' + (bottom - top + 12) + '" fill="url(#g)"/>';
+      h += '<path d="M' + sx + ' ' + (top - 12) + 'V' + (bottom + 12) + '" stroke="var(--machine)" stroke-width="2.5"/>';
+      h += '<text x="' + (sx + 12) + '" y="16" fill="var(--machine)">SEEN BY MACHINE</text>';
+      h += '<rect x="' + (px - 4) + '" y="' + (py - 4) + '" width="' + (fw + 8) + '" height="' + (fh + 8) + '" fill="none" stroke="var(--human)" stroke-width="2.5"/>';
+      h += '<path d="M' + (px + fw / 2) + ' ' + (py - 4) + 'V22" stroke="var(--human)" stroke-width="1.5"/>';
+      h += '<text x="' + (px + fw / 2 + 10) + '" y="16" fill="var(--human)">READ CLOSELY</text>';
+      h += '<text x="2" y="244" fill="var(--soft)">2016</text><text x="1318" y="244" fill="var(--soft)" text-anchor="end">2026</text>';
+      h += '<path d="M62 239H1258" stroke="var(--offl)"/>';
+      svg.innerHTML = h;
+    })(document.getElementById("wall"));
+  </script>
 </body>
 </html>

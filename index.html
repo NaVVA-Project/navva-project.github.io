@@ -15,18 +15,24 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=VT323&display=swap">
 <style>
   :root {
-    --paper: #f3f1ea; --surface: #fbfaf5; --surface-2: #e9e6db;
-    --ink: #1c2420; --ink-soft: #55615a; --ink-3: #7a857e;
-    --line: #d6d2c4; --line-strong: #b7b3a3;
-    --accent: #2f6b54; --brass: #8f5e1c;
+    /* light: archival dossier */
+    --paper: #f2e9d7; --surface: #fbf6ea; --surface-2: #e9ddc8;
+    --ink: #382b22; --ink-soft: #6f5c4b; --ink-3: #735e4c;
+    --line: #d1c0a5; --line-strong: #aa9270;
+    --accent: #712936; --brass: #805f26;
     --archive: #66733b; --machine: #2d6692; --human: #8d3f70;
-    /* the screen stays a screen in both themes */
-    --scr-bg: #080c0b; --scr-ink: #e5eee7; --scr-soft: #a9b8ae; --scr-line: #27352e;
-    --scr-accent: #a6dfbf; --scr-brass: #d3a54f; --scr-rec: #f06a61; --scr-frame: #284438;
+    --scr-bg: #fbf6ea; --scr-ink: #382b22; --scr-soft: #6f5c4b; --scr-accent: #571c28; --scr-brass: #805f26; --scr-rec: #712936;
+    --scr-border: #aa9270; --scr-border-top: #712936; --scr-bw: 1px;
+    --scr-texture: none; --scr-shadow: none; --scr-glow: none;
+    --osd-font: 500 0.72rem/1.4 var(--mono); --osd-ls: 0.1em; --d-rec: none; --d-file: inline;
+    --title-rule: 4px double #712936; --title-ml: 22px; --title-pl: 20px;
+    --w-off: #f2e9d7; --w-off-line: #d1c0a5;
+    --p0: #aa9270; --p1: #805f26; --p2: #2d6692; --p3: #66733b; --p4: #8d3f70; --p5: #9a3e32; --p6: #712936; --p7: #6f5c4b;
     --sans: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
     --serif: "Fraunces", Georgia, serif;
     --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
   }
+  /* dark: off-air monitor */
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
       --paper: #0b100e; --surface: #111714; --surface-2: #18201c;
@@ -34,15 +40,29 @@
       --line: #27352e; --line-strong: #486054;
       --accent: #78b49a; --brass: #d3a54f;
       --archive: #b9c46e; --machine: #55b5d9; --human: #dd7cba;
-    }
+      --scr-bg: #080c0b; --scr-ink: #e5eee7; --scr-soft: #a9b8ae; --scr-accent: #a6dfbf; --scr-brass: #d3a54f; --scr-rec: #f06a61;
+      --scr-border: #284438; --scr-border-top: #284438; --scr-bw: 4px;
+      --scr-texture: repeating-linear-gradient(0deg, rgba(126,255,197,0.045) 0, rgba(126,255,197,0.045) 1px, transparent 1px, transparent 3px), radial-gradient(ellipse at 50% 0%, #17251f 0%, #080c0b 70%);
+      --scr-shadow: inset 0 0 72px rgba(0,0,0,0.62); --scr-glow: 0 0 16px rgba(116,226,166,0.22);
+      --osd-font: 400 1.5rem/1 "VT323", var(--mono); --osd-ls: 0.06em; --d-rec: inline; --d-file: none;
+      --title-rule: 0 solid transparent; --title-ml: 0px; --title-pl: 22px;
+      --w-off: #101713; --w-off-line: #2c3d34;
+      --p0: #c9c9c2; --p1: #c4bb4e; --p2: #55b5b0; --p3: #5fae62; --p4: #a65c9e; --p5: #b9504a; --p6: #4a5fae; --p7: #a6dfbf;    }
   }
   :root[data-theme="dark"] {
-    --paper: #0b100e; --surface: #111714; --surface-2: #18201c;
-    --ink: #e5eee7; --ink-soft: #a9b8ae; --ink-3: #82968a;
-    --line: #27352e; --line-strong: #486054;
-    --accent: #78b49a; --brass: #d3a54f;
-    --archive: #b9c46e; --machine: #55b5d9; --human: #dd7cba;
-  }
+      --paper: #0b100e; --surface: #111714; --surface-2: #18201c;
+      --ink: #e5eee7; --ink-soft: #a9b8ae; --ink-3: #82968a;
+      --line: #27352e; --line-strong: #486054;
+      --accent: #78b49a; --brass: #d3a54f;
+      --archive: #b9c46e; --machine: #55b5d9; --human: #dd7cba;
+      --scr-bg: #080c0b; --scr-ink: #e5eee7; --scr-soft: #a9b8ae; --scr-accent: #a6dfbf; --scr-brass: #d3a54f; --scr-rec: #f06a61;
+      --scr-border: #284438; --scr-border-top: #284438; --scr-bw: 4px;
+      --scr-texture: repeating-linear-gradient(0deg, rgba(126,255,197,0.045) 0, rgba(126,255,197,0.045) 1px, transparent 1px, transparent 3px), radial-gradient(ellipse at 50% 0%, #17251f 0%, #080c0b 70%);
+      --scr-shadow: inset 0 0 72px rgba(0,0,0,0.62); --scr-glow: 0 0 16px rgba(116,226,166,0.22);
+      --osd-font: 400 1.5rem/1 "VT323", var(--mono); --osd-ls: 0.06em; --d-rec: inline; --d-file: none;
+      --title-rule: 0 solid transparent; --title-ml: 0px; --title-pl: 22px;
+      --w-off: #101713; --w-off-line: #2c3d34;
+      --p0: #c9c9c2; --p1: #c4bb4e; --p2: #55b5b0; --p3: #5fae62; --p4: #a65c9e; --p5: #b9504a; --p6: #4a5fae; --p7: #a6dfbf;  }
 
   * { box-sizing: border-box; }
   body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
@@ -59,22 +79,22 @@
   .topbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-block: 14px; }
   .pill { font: 500 0.72rem var(--mono); letter-spacing: 0.06em; border: 1px solid var(--line-strong); background: transparent; color: var(--ink-soft); border-radius: 2px; padding: 4px 10px; cursor: pointer; }
 
-  /* screen */
-  .screen { position: relative; background: var(--scr-bg); color: var(--scr-ink); border: 4px solid var(--scr-frame); overflow: hidden;
-    background-image: repeating-linear-gradient(0deg, rgba(126,255,197,0.045) 0, rgba(126,255,197,0.045) 1px, transparent 1px, transparent 3px), radial-gradient(ellipse at 50% 0%, #17251f 0%, #080c0b 70%);
-    box-shadow: inset 0 0 72px rgba(0,0,0,0.62); }
-  .osd { display: flex; justify-content: space-between; gap: 12px; padding: 14px 22px 0; font: 400 1.5rem/1 "VT323", var(--mono); letter-spacing: 0.06em; }
-  .osd .rec { color: var(--scr-rec); } .osd .tc { color: var(--scr-brass); font-variant-numeric: tabular-nums; }
+  /* masthead: a dossier sheet in light, a monitor in dark */
+  .screen { position: relative; background: var(--scr-bg); color: var(--scr-ink); border: var(--scr-bw) solid var(--scr-border); border-top: max(3px, var(--scr-bw)) solid var(--scr-border-top); overflow: hidden;
+    background-image: var(--scr-texture); box-shadow: var(--scr-shadow); }
+  .osd { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 14px 22px 0; font: var(--osd-font); letter-spacing: var(--osd-ls); }
+  .osd .rec { color: var(--scr-rec); display: var(--d-rec); } .osd .file { color: var(--scr-brass); display: var(--d-file); text-transform: uppercase; }
+  .osd .tc { color: var(--scr-brass); font-variant-numeric: tabular-nums; }
   .rec i { display: inline-block; width: 11px; height: 11px; border-radius: 50%; background: currentColor; margin-right: 8px; animation: blink 1.6s steps(2, start) infinite; }
   @keyframes blink { to { visibility: hidden; } }
   @media (prefers-reduced-motion: reduce) { .rec i { animation: none; } }
-  .title { padding: clamp(28px, 6vw, 60px) 22px clamp(20px, 4vw, 44px); }
+  .title { margin: clamp(28px, 6vw, 60px) 22px clamp(20px, 4vw, 44px) var(--title-ml); padding-left: var(--title-pl); border-left: var(--title-rule); }
   .title .label { color: var(--scr-soft); }
-  h1 { font-size: clamp(2rem, 6vw, 3.7rem); line-height: 1.05; letter-spacing: -0.012em; color: var(--scr-accent); text-shadow: 0 0 16px rgba(116,226,166,0.22); margin: 14px 0 12px; }
+  h1 { font-size: clamp(2rem, 6vw, 3.7rem); line-height: 1.05; letter-spacing: -0.012em; color: var(--scr-accent); text-shadow: var(--scr-glow); margin: 14px 0 12px; }
   .dek { font-family: var(--serif); font-weight: 300; font-size: clamp(1.05rem, 2.2vw, 1.3rem); color: var(--scr-ink); max-width: 34rem; }
   .strip { padding: 0 22px 22px; }
-  .bars { display: flex; height: clamp(22px, 5vw, 44px); }
-  .bars span { flex: 1; }
+  .strip svg { width: 100%; height: auto; display: block; overflow: visible; }
+  .strip text { font-family: var(--mono); font-size: 15px; letter-spacing: 0.12em; }
 
   section { padding-top: 52px; }
   .sec-head { border-left: 3px double var(--accent); padding-left: 14px; margin-bottom: 18px; }
@@ -103,14 +123,14 @@
   </div>
 
   <header class="screen">
-    <div class="osd"><span class="rec"><i></i>REC</span><span class="tc">2016–2026</span></div>
+    <div class="osd"><span class="rec"><i></i>REC</span><span class="file">Archive file · NaVVA</span><span class="tc">2016–2026</span></div>
     <div class="title">
       <span class="label">AHRC Collaborative Doctoral Partnership · King's College London × British Film Institute</span>
       <h1>From Narratives of Value to Valuable Algorithms</h1>
       <p class="dek">A decade of promotional screen culture in the UK, seen by machine</p>
     </div>
     <div class="strip">
-      <div class="bars" aria-hidden="true"><span style="background:#c9c9c2"></span><span style="background:#c4bb4e"></span><span style="background:#55b5b0"></span><span style="background:#5fae62"></span><span style="background:#a65c9e"></span><span style="background:#b9504a"></span><span style="background:#4a5fae"></span></div>
+      <svg id="wall" viewBox="0 0 1320 250" role="img" aria-label="Concept image: a wall of small abstract screens running from 2016 to 2026. A scan line marks how far the machine has described them, and one screen is outlined for close reading."></svg>
     </div>
   </header>
 
@@ -180,6 +200,29 @@
       try { localStorage.setItem(key, root.dataset.theme); } catch (e) {}
     });
   })();
+  // A wall of abstract screens: left of the scan line the machine has described them,
+  // right of it they are still unread; one screen is pulled out for close reading.
+  (function (svg) {
+    var pal = [0, 1, 2, 3, 4, 5, 6, 7].map(function (i) { return "var(--p" + i + ")"; });
+    var cols = 30, rows = 7, pw = 44, ph = 26, fw = 40, fh = 22, top = 34, scan = 19, pick = [8, 3], s = 7, h = "";
+    function rnd() { s = (s * 16807) % 2147483647; return s / 2147483647; }
+    h += '<defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" style="stop-color:var(--machine)" stop-opacity="0"/><stop offset="1" style="stop-color:var(--machine)" stop-opacity="0.3"/></linearGradient></defs>';
+    for (var r = 0; r < rows; r++) for (var c = 0; c < cols; c++) {
+      var x = c * pw + 2, y = top + r * ph, col = pal[Math.floor(rnd() * pal.length)], o = (0.3 + rnd() * 0.6).toFixed(2);
+      h += c < scan ? '<rect x="' + x + '" y="' + y + '" width="' + fw + '" height="' + fh + '" fill="' + col + '" fill-opacity="' + o + '"/>'
+                    : '<rect x="' + x + '" y="' + y + '" width="' + fw + '" height="' + fh + '" fill="var(--w-off)" stroke="var(--w-off-line)"/>';
+    }
+    var sx = scan * pw, bottom = top + rows * ph - 4, px = pick[0] * pw + 2, py = top + pick[1] * ph;
+    h += '<rect x="' + (sx - 110) + '" y="' + (top - 6) + '" width="110" height="' + (bottom - top + 12) + '" fill="url(#g)"/>';
+    h += '<path d="M' + sx + ' ' + (top - 12) + 'V' + (bottom + 12) + '" stroke="var(--machine)" stroke-width="2.5"/>';
+    h += '<text x="' + (sx + 12) + '" y="16" fill="var(--machine)">SEEN BY MACHINE</text>';
+    h += '<rect x="' + (px - 4) + '" y="' + (py - 4) + '" width="' + (fw + 8) + '" height="' + (fh + 8) + '" fill="none" stroke="var(--human)" stroke-width="2.5"/>';
+    h += '<path d="M' + (px + fw / 2) + ' ' + (py - 4) + 'V22" stroke="var(--human)" stroke-width="1.5"/>';
+    h += '<text x="' + (px + fw / 2 + 10) + '" y="16" fill="var(--human)">READ CLOSELY</text>';
+    h += '<text x="2" y="244" fill="var(--scr-soft)">2016</text><text x="1318" y="244" fill="var(--scr-soft)" text-anchor="end">2026</text>';
+    h += '<path d="M62 239H1258" stroke="var(--w-off-line)"/>';
+    svg.innerHTML = h;
+  })(document.getElementById("wall"));
 </script>
 </body>
 </html>
