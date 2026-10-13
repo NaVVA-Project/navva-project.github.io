@@ -12,7 +12,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=VT323&display=swap">
 <style>
   :root {
     --paper: #f3f1ea; --surface: #fbfaf5; --surface-2: #e9e6db;
@@ -24,7 +24,7 @@
     --scr-bg: #080c0b; --scr-ink: #e5eee7; --scr-soft: #a9b8ae; --scr-line: #27352e;
     --scr-accent: #a6dfbf; --scr-brass: #d3a54f; --scr-rec: #f06a61; --scr-frame: #284438;
     --sans: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
-    --serif: "Source Serif 4", Georgia, serif;
+    --serif: "Fraunces", Georgia, serif;
     --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
   }
   @media (prefers-color-scheme: dark) {
@@ -63,19 +63,17 @@
   .screen { position: relative; background: var(--scr-bg); color: var(--scr-ink); border: 4px solid var(--scr-frame); overflow: hidden;
     background-image: repeating-linear-gradient(0deg, rgba(126,255,197,0.045) 0, rgba(126,255,197,0.045) 1px, transparent 1px, transparent 3px), radial-gradient(ellipse at 50% 0%, #17251f 0%, #080c0b 70%);
     box-shadow: inset 0 0 72px rgba(0,0,0,0.62); }
-  .osd { display: flex; justify-content: space-between; gap: 12px; padding: 16px 22px 0; font: 500 0.72rem var(--mono); letter-spacing: 0.12em; }
+  .osd { display: flex; justify-content: space-between; gap: 12px; padding: 14px 22px 0; font: 400 1.5rem/1 "VT323", var(--mono); letter-spacing: 0.06em; }
   .osd .rec { color: var(--scr-rec); } .osd .tc { color: var(--scr-brass); font-variant-numeric: tabular-nums; }
-  .rec i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: currentColor; margin-right: 8px; animation: blink 1.6s steps(2, start) infinite; }
+  .rec i { display: inline-block; width: 11px; height: 11px; border-radius: 50%; background: currentColor; margin-right: 8px; animation: blink 1.6s steps(2, start) infinite; }
   @keyframes blink { to { visibility: hidden; } }
   @media (prefers-reduced-motion: reduce) { .rec i { animation: none; } }
-  .title { padding: clamp(28px, 6vw, 56px) 22px 8px; border-left: 4px double var(--scr-accent); margin: 22px 0 0 22px; }
+  .title { padding: clamp(28px, 6vw, 60px) 22px clamp(20px, 4vw, 44px); }
   .title .label { color: var(--scr-soft); }
-  h1 { font-size: clamp(1.9rem, 5.4vw, 3.3rem); line-height: 1.08; color: var(--scr-accent); text-shadow: 0 0 16px rgba(116,226,166,0.22); margin: 14px 0 12px; }
-  .dek { font-family: var(--serif); font-size: clamp(1.05rem, 2.2vw, 1.3rem); color: var(--scr-ink); max-width: 34rem; }
-  .strip { padding: 26px 22px 6px; }
-  .strip svg { width: 100%; height: auto; display: block; }
-  .strip text { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; fill: var(--scr-soft); }
-  .bars { display: flex; height: 10px; margin-top: 18px; }
+  h1 { font-size: clamp(2rem, 6vw, 3.7rem); line-height: 1.05; letter-spacing: -0.012em; color: var(--scr-accent); text-shadow: 0 0 16px rgba(116,226,166,0.22); margin: 14px 0 12px; }
+  .dek { font-family: var(--serif); font-weight: 300; font-size: clamp(1.05rem, 2.2vw, 1.3rem); color: var(--scr-ink); max-width: 34rem; }
+  .strip { padding: 0 22px 22px; }
+  .bars { display: flex; height: clamp(22px, 5vw, 44px); }
   .bars span { flex: 1; }
 
   section { padding-top: 52px; }
@@ -105,31 +103,13 @@
   </div>
 
   <header class="screen">
-    <div class="osd"><span class="rec"><i></i>REC &nbsp; OFF AIR</span><span class="tc">2016 ▸ 2026</span></div>
+    <div class="osd"><span class="rec"><i></i>REC</span><span class="tc">2016–2026</span></div>
     <div class="title">
       <span class="label">AHRC Collaborative Doctoral Partnership · King's College London × British Film Institute</span>
       <h1>From Narratives of Value to Valuable Algorithms</h1>
       <p class="dek">A decade of promotional screen culture in the UK, seen by machine</p>
     </div>
     <div class="strip">
-      <svg viewBox="0 0 1000 96" role="img" aria-label="Diagram: a continuous broadcast recording in which programme segments alternate with advertising breaks; each break is divided into single advertisements at marked cut points.">
-        <text x="0" y="12">PROGRAMME</text><text x="262" y="12" fill="#d3a54f">BREAK</text><text x="640" y="12" fill="#d3a54f">BREAK</text>
-        <g>
-          <rect x="0" y="22" width="250" height="40" fill="#18201c" stroke="#27352e"/>
-          <rect x="390" y="22" width="238" height="40" fill="#18201c" stroke="#27352e"/>
-          <rect x="800" y="22" width="200" height="40" fill="#18201c" stroke="#27352e"/>
-        </g>
-        <g fill="#a6dfbf" fill-opacity="0.82">
-          <rect x="262" y="22" width="30" height="40"/><rect x="295" y="22" width="20" height="40"/><rect x="318" y="22" width="30" height="40"/><rect x="351" y="22" width="10" height="40"/><rect x="364" y="22" width="14" height="40"/>
-          <rect x="640" y="22" width="20" height="40"/><rect x="663" y="22" width="40" height="40"/><rect x="706" y="22" width="30" height="40"/><rect x="739" y="22" width="20" height="40"/><rect x="762" y="22" width="26" height="40"/>
-        </g>
-        <g stroke="#d3a54f" stroke-width="1.5">
-          <path d="M262 16V70M293.5 16V70M316.5 16V70M349.5 16V70M362.5 16V70M378 16V70M640 16V70M661.5 16V70M704.5 16V70M737.5 16V70M760.5 16V70M788 16V70"/>
-        </g>
-        <path d="M0 80H1000" stroke="#27352e"/>
-        <g stroke="#486054"><path d="M0 76V84M250 76V84M500 76V84M750 76V84M1000 76V84"/></g>
-        <text x="0" y="96">00:00:00</text><text x="930" y="96">01:00:00</text>
-      </svg>
       <div class="bars" aria-hidden="true"><span style="background:#c9c9c2"></span><span style="background:#c4bb4e"></span><span style="background:#55b5b0"></span><span style="background:#5fae62"></span><span style="background:#a65c9e"></span><span style="background:#b9504a"></span><span style="background:#4a5fae"></span></div>
     </div>
   </header>
