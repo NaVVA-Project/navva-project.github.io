@@ -12,7 +12,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=VT323&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500..700&family=Newsreader:ital,opsz,wght@0,6..72,400..500;1,6..72,400..500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=VT323&display=swap">
 <style>
   :root {
     /* light: archival dossier */
@@ -29,7 +29,7 @@
     --w-off: #f2e9d7; --w-off-line: #d1c0a5;
     --p0: #aa9270; --p1: #805f26; --p2: #2d6692; --p3: #66733b; --p4: #8d3f70; --p5: #9a3e32; --p6: #712936; --p7: #6f5c4b;
     --sans: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
-    --serif: "Fraunces", Georgia, serif;
+    --serif: "Newsreader", Georgia, serif;
     --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
   }
   /* dark: off-air monitor */
@@ -90,8 +90,8 @@
   @media (prefers-reduced-motion: reduce) { .rec i { animation: none; } }
   .title { margin: clamp(28px, 6vw, 60px) 22px clamp(20px, 4vw, 44px) var(--title-ml); padding-left: var(--title-pl); border-left: var(--title-rule); }
   .title .label { color: var(--scr-soft); }
-  h1 { font-size: clamp(2rem, 6vw, 3.7rem); line-height: 1.05; letter-spacing: -0.012em; color: var(--scr-accent); text-shadow: var(--scr-glow); margin: 14px 0 12px; }
-  .dek { font-family: var(--serif); font-weight: 300; font-size: clamp(1.05rem, 2.2vw, 1.3rem); color: var(--scr-ink); max-width: 34rem; }
+  h1 { font-family: "Archivo", var(--sans); font-weight: 600; font-size: clamp(1.9rem, 5.6vw, 3.4rem); line-height: 1.08; letter-spacing: -0.015em; color: var(--scr-accent); margin: 14px 0 14px; }
+  .dek { font-family: var(--serif); font-weight: 400; font-size: clamp(1.05rem, 2.2vw, 1.3rem); color: var(--scr-ink); text-wrap: balance; }
   .strip { padding: 0 22px 22px; }
   .strip svg { width: 100%; height: auto; display: block; overflow: visible; }
   .strip text { font-family: var(--mono); font-size: 15px; letter-spacing: 0.12em; }
@@ -101,7 +101,7 @@
   .sec-head .label { color: var(--brass); }
   .prose p { max-width: 42rem; }
   .prose p + p { margin-top: 14px; }
-  .rq { font-family: var(--serif); font-size: clamp(1.15rem, 2.6vw, 1.45rem); line-height: 1.4; max-width: 44rem; border-top: 1px solid var(--brass); border-bottom: 1px solid var(--line); padding: 18px 0; margin: 0; }
+  .rq { font-family: var(--serif); font-size: clamp(1.15rem, 2.6vw, 1.45rem); line-height: 1.4; max-width: 44rem; border-top: 1px solid var(--brass); padding: 16px 0; margin: 0; }
   .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr)); gap: 14px; }
   .step { background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--c); padding: 16px; }
   .step .label { color: var(--c); display: block; margin-bottom: 8px; }
@@ -123,49 +123,51 @@
   </div>
 
   <header class="screen">
-    <div class="osd"><span class="rec"><i></i>REC</span><span class="file">Archive file · NaVVA</span><span class="tc">2016–2026</span></div>
+    <div class="osd"><span class="rec"><i></i>REC</span><span class="file">Ref. NaVVA</span><span class="tc">2016–2026</span></div>
     <div class="title">
       <span class="label">AHRC Collaborative Doctoral Partnership · King's College London × British Film Institute</span>
       <h1>From Narratives of Value to Valuable Algorithms</h1>
       <p class="dek">A decade of promotional screen culture in the UK, seen by machine</p>
     </div>
     <div class="strip">
-      <svg id="wall" viewBox="0 0 1320 250" role="img" aria-label="Concept image: a wall of small abstract screens running from 2016 to 2026. A scan line marks how far the machine has described them, and one screen is outlined for close reading."></svg>
+      <svg id="wall" viewBox="0 0 1320 250" role="img" aria-label="Concept image: a wall of small abstract screens running from 2016 to 2026. All of them are marked as seen by machine, and a few are outlined for close reading."></svg>
     </div>
   </header>
 
   <main>
     <section class="prose">
-      <div class="sec-head"><span class="label">01 · The archive</span><h2>The adverts are in the recordings, but not yet in the catalogue</h2></div>
-      <p>Since 2016 the BFI National Archive has recorded television off air from the UK's main commercial public service channels. Every advertisement broadcast on those channels is somewhere in the recordings. The adverts are not catalogued as items, however. They sit inside thousands of hours of continuous video, between and within the programmes they interrupted.</p>
-      <p>NaVVA turns this material into a collection that can be studied, and then studies it. The project treats a decade of television advertising as a record of how social and economic values were presented to audiences in the UK, and it asks what computational methods can and cannot see in that record.</p>
+      <div class="sec-head"><span class="label">01 · The archive</span><h2>Ten years of television advertising in the BFI National Archive</h2></div>
+      <p>The BFI National Archive has recorded television off air from UK public service broadcasters since the 1980s. Since 2016 these recordings include the advertisements broadcast on the main commercial public service channels. Taken together, the adverts are likely to be one of the largest collections of their kind, and a record of consumer culture in the UK over the past decade.</p>
+      <p>The adverts are spread across thousands of hours of digital video and have not yet been documented as a collection. NaVVA sets out to define this material as a usable collection, to study it as a record of social and economic values in the UK, and to produce documentation that opens it to researchers in other disciplines and to wider audiences.</p>
     </section>
 
     <section>
-      <div class="sec-head"><span class="label">02 · The question</span><h2>One question, asked of ten years of commercial television</h2></div>
-      <p class="rq">What can a computational analysis of the BFI's broadcast advertising archive reveal about the construction and negotiation of British national identity on commercial television between 2016 and 2026?</p>
+      <div class="sec-head"><span class="label">02 · The questions</span><h2>Two questions about a decade of promotional screen culture</h2></div>
+      <p class="rq">How has promotional screen culture in Britain changed over the past decade?</p>
+      <p class="rq">How can this change be accessed, understood and analysed from a computational perspective?</p>
+      <p class="note">Within this frame, the thesis looks at how British national identity is presented in television advertising between 2016 and 2026.</p>
     </section>
 
     <section>
-      <div class="sec-head"><span class="label">03 · The approach</span><h2>Three steps, each with a different kind of reader</h2></div>
+      <div class="sec-head"><span class="label">03 · The approach</span><h2>Computational methods combined with close reading</h2></div>
       <div class="steps">
         <div class="step" style="--c: var(--archive)">
-          <span class="label">Archive to corpus</span>
-          <h3>The corpus is made, not found</h3>
-          <p>Single adverts are cut out of continuous recordings using the broadcast schedule, the soundtrack and the picture. No machine learning decides where an advert begins or ends, and every cut is logged so that it can be checked.</p>
+          <span class="label">Archive</span>
+          <h3>Building the collection</h3>
+          <p>Single advertisements are located in the continuous recordings and extracted, so that each advert becomes an item that can be described, counted and compared.</p>
         </div>
         <div class="step" style="--c: var(--machine)">
           <span class="label">Machine</span>
-          <h3>A model describes; it does not interpret</h3>
-          <p>A vision-language model annotates each advert, for example who appears, where the scene is set, and which national markers are visible. Following Arnold and Tilton's <a href="https://doi.org/10.7551/mitpress/14046.001.0001"><i>Distant Viewing</i></a> (2023), the project treats these outputs as annotations that still need interpretation.</p>
+          <h3>Viewing at scale</h3>
+          <p>A vision-language model is used to describe what the adverts show across the whole collection, so that patterns over the decade can be mapped.</p>
         </div>
         <div class="step" style="--c: var(--human)">
           <span class="label">Human</span>
-          <h3>Where the model misreads is also evidence</h3>
-          <p>A purposively selected set of adverts is read closely with the vocabulary of social semiotics. The places where the model's descriptions and the close readings differ are recorded and analysed, because they indicate what kind of cultural knowledge reading national identity in advertising requires.</p>
+          <h3>Reading closely</h3>
+          <p>A smaller selection of adverts is analysed in detail with approaches from media studies and social semiotics, and the two kinds of reading are compared.</p>
         </div>
       </div>
-      <p class="note">The claims of the project are claims about the BFI collection, not about British television advertising as a whole. No archive footage is shown on this page.</p>
+      <p class="note">No archive footage is shown on this page.</p>
     </section>
 
     <section>
@@ -200,29 +202,30 @@
       try { localStorage.setItem(key, root.dataset.theme); } catch (e) {}
     });
   })();
-  // A wall of abstract screens: left of the scan line the machine has described them,
-  // right of it they are still unread; one screen is pulled out for close reading.
   (function (svg) {
-    var pal = [0, 1, 2, 3, 4, 5, 6, 7].map(function (i) { return "var(--p" + i + ")"; });
-    var cols = 30, rows = 7, pw = 44, ph = 26, fw = 40, fh = 22, top = 34, scan = 19, pick = [8, 3], s = 7, h = "";
-    function rnd() { s = (s * 16807) % 2147483647; return s / 2147483647; }
-    h += '<defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" style="stop-color:var(--machine)" stop-opacity="0"/><stop offset="1" style="stop-color:var(--machine)" stop-opacity="0.3"/></linearGradient></defs>';
-    for (var r = 0; r < rows; r++) for (var c = 0; c < cols; c++) {
-      var x = c * pw + 2, y = top + r * ph, col = pal[Math.floor(rnd() * pal.length)], o = (0.3 + rnd() * 0.6).toFixed(2);
-      h += c < scan ? '<rect x="' + x + '" y="' + y + '" width="' + fw + '" height="' + fh + '" fill="' + col + '" fill-opacity="' + o + '"/>'
-                    : '<rect x="' + x + '" y="' + y + '" width="' + fw + '" height="' + fh + '" fill="var(--w-off)" stroke="var(--w-off-line)"/>';
-    }
-    var sx = scan * pw, bottom = top + rows * ph - 4, px = pick[0] * pw + 2, py = top + pick[1] * ph;
-    h += '<rect x="' + (sx - 110) + '" y="' + (top - 6) + '" width="110" height="' + (bottom - top + 12) + '" fill="url(#g)"/>';
-    h += '<path d="M' + sx + ' ' + (top - 12) + 'V' + (bottom + 12) + '" stroke="var(--machine)" stroke-width="2.5"/>';
-    h += '<text x="' + (sx + 12) + '" y="16" fill="var(--machine)">SEEN BY MACHINE</text>';
-    h += '<rect x="' + (px - 4) + '" y="' + (py - 4) + '" width="' + (fw + 8) + '" height="' + (fh + 8) + '" fill="none" stroke="var(--human)" stroke-width="2.5"/>';
-    h += '<path d="M' + (px + fw / 2) + ' ' + (py - 4) + 'V22" stroke="var(--human)" stroke-width="1.5"/>';
-    h += '<text x="' + (px + fw / 2 + 10) + '" y="16" fill="var(--human)">READ CLOSELY</text>';
-    h += '<text x="2" y="244" fill="var(--scr-soft)">2016</text><text x="1318" y="244" fill="var(--scr-soft)" text-anchor="end">2026</text>';
-    h += '<path d="M62 239H1258" stroke="var(--w-off-line)"/>';
-    svg.innerHTML = h;
-  })(document.getElementById("wall"));
+      // The whole collection is seen by machine; a few adverts are picked out and read closely.
+      var pal = [0, 1, 2, 3, 4, 5, 6, 7].map(function (i) { return "var(--p" + i + ")"; });
+      var cols = 60, rows = 10, pw = 22, ph = 14, fw = 20, fh = 11, top = 36, s = 7, h = "", fills = {};
+      var picks = [[7, 2], [19, 6], [31, 3], [44, 7], [53, 1]], soft = "var(--scr-soft, var(--soft))", rule = "var(--w-off-line, var(--offl))";
+      function rnd() { s = (s * 16807) % 2147483647; return s / 2147483647; }
+      svg.setAttribute("viewBox", "0 0 1320 212");
+      for (var r = 0; r < rows; r++) for (var c = 0; c < cols; c++) {
+        var col = pal[Math.floor(rnd() * pal.length)], o = (0.3 + rnd() * 0.6).toFixed(2);
+        fills[c + "," + r] = col;
+        h += '<rect x="' + (c * pw + 1) + '" y="' + (top + r * ph) + '" width="' + fw + '" height="' + fh + '" fill="' + col + '" fill-opacity="' + o + '"/>';
+      }
+      picks.forEach(function (p) {
+        var cx = p[0] * pw + 1 + fw / 2, cy = top + p[1] * ph + fh / 2;
+        h += '<rect x="' + (cx - 19) + '" y="' + (cy - 11) + '" width="38" height="22" fill="var(--scr-bg, var(--bg))"/>';
+        h += '<rect x="' + (cx - 19) + '" y="' + (cy - 11) + '" width="38" height="22" fill="' + fills[p[0] + "," + p[1]] + '" stroke="var(--human)" stroke-width="2.5"/>';
+      });
+      h += '<path d="M1 28V22H1319V28" fill="none" stroke="var(--machine)" stroke-width="1.5"/>';
+      h += '<text x="1" y="13" fill="var(--machine)">SEEN BY MACHINE · ALL OF THEM</text>';
+      h += '<text x="1319" y="13" fill="var(--human)" text-anchor="end">READ CLOSELY · A FEW</text>';
+      h += '<text x="1" y="206" fill="' + soft + '">2016</text><text x="1319" y="206" fill="' + soft + '" text-anchor="end">2026</text>';
+      h += '<path d="M62 201H1258" stroke="' + rule + '"/>';
+      svg.innerHTML = h;
+    })(document.getElementById("wall"));
 </script>
 </body>
 </html>
