@@ -12,7 +12,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500..700&family=Newsreader:ital,opsz,wght@0,6..72,400..500;1,6..72,400..500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=VT323&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600&family=Newsreader:ital,opsz,wght@0,6..72,400..500;1,6..72,400..500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=VT323&display=swap">
 <style>
   :root {
     /* light: archival dossier */
@@ -90,7 +90,7 @@
   @media (prefers-reduced-motion: reduce) { .rec i { animation: none; } }
   .title { margin: clamp(28px, 6vw, 60px) 22px clamp(20px, 4vw, 44px) var(--title-ml); padding-left: var(--title-pl); border-left: var(--title-rule); }
   .title .label { color: var(--scr-soft); }
-  h1 { font-family: "Archivo", var(--sans); font-weight: 600; font-size: clamp(1.9rem, 5.6vw, 3.4rem); line-height: 1.08; letter-spacing: -0.015em; color: var(--scr-accent); text-shadow: var(--scr-glow); margin: 14px 0 14px; }
+  h1 { font-family: "Space Grotesk", var(--sans); font-weight: 500; font-size: clamp(1.9rem, 5.6vw, 3.4rem); line-height: 1.08; letter-spacing: -0.02em; color: var(--scr-accent); text-shadow: var(--scr-glow); margin: 14px 0 14px; }
   .dek { font-family: var(--serif); font-weight: 400; font-size: clamp(1.05rem, 2.2vw, 1.3rem); color: var(--scr-ink); text-wrap: balance; }
   .strip { padding: 0 22px 22px; }
   .strip svg { width: 100%; height: auto; display: block; overflow: visible; }
@@ -109,6 +109,7 @@
   .note { font-size: 0.88rem; color: var(--ink-soft); max-width: 42rem; margin-top: 16px; }
   .people { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(210px, 100%), 1fr)); gap: 0; border: 1px solid var(--line); border-top: 3px solid var(--accent); background: var(--surface); }
   .person { padding: 14px 16px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 0 -1px -1px 0; }
+  .grp { margin: 20px 0 8px; }
   .person b { display: block; font-weight: 600; }
   .person span { font-size: 0.85rem; color: var(--ink-soft); }
   footer { margin-top: 64px; border-top: 1px solid var(--line); padding-block: 22px 40px; font-size: 0.82rem; color: var(--ink-soft); }
@@ -172,8 +173,12 @@
 
     <section>
       <div class="sec-head"><span class="label">04 · People</span><h2>A partnership between a university department and a national archive</h2></div>
+      <p class="label grp">Doctoral researcher</p>
       <div class="people">
-        <div class="person"><b>Shihan Liu</b><span>PhD researcher, Department of Digital Humanities, King's College London</span></div>
+        <div class="person"><b>Shihan Liu</b><span>Department of Digital Humanities, King's College London</span></div>
+      </div>
+      <p class="label grp">Supervisors</p>
+      <div class="people">
         <div class="person"><b>Dr Daniel Chávez Heras</b><span>First supervisor, Department of Digital Humanities, King's College London</span></div>
         <div class="person"><b>Dr Astrid Van den Bossche</b><span>Second supervisor, Department of Digital Humanities, King's College London</span></div>
         <div class="person"><b>Stephen McConnachie</b><span>Co-supervisor, Head of Data &amp; Digital Preservation, British Film Institute</span></div>
