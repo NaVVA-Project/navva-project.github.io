@@ -10,6 +10,7 @@
 <meta property="og:image" content="https://navva-project.github.io/assets/navva_card.png">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='1' y='4' width='30' height='22' rx='3' fill='%23080c0b' stroke='%23284438' stroke-width='2'/%3E%3Ccircle cx='14' cy='14' r='6' fill='none' stroke='%23a6dfbf' stroke-width='2.5'/%3E%3Cpath d='M18.5 18.5l5 5' stroke='%23a6dfbf' stroke-width='3' stroke-linecap='round'/%3E%3Ccircle cx='26' cy='8.5' r='2' fill='%23f06a61'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600&family=Newsreader:ital,opsz,wght@0,6..72,400..500;1,6..72,400..500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=VT323&display=swap">
@@ -118,6 +119,28 @@
   .person span { font-size: 0.85rem; color: var(--ink-soft); }
   footer { margin-top: 64px; border-top: 1px solid var(--line); padding-block: 22px 40px; font-size: 0.82rem; color: var(--ink-soft); }
   footer p + p { margin-top: 6px; }
+
+  /* small polish */
+  ::selection { background: var(--brass); color: var(--paper); }
+  body, .screen, .step, .people, .theme-option { transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease; }
+  @media (prefers-reduced-motion: reduce) { body, .screen, .step, .people, .theme-option { transition: none; } }
+  a[href^="http"]:not(.repo)::after { content: "↗"; font-size: 0.72em; margin-left: 2px; color: var(--ink-3); text-decoration: none; display: inline-block; }
+  .rq:last-of-type { border-bottom: 1px solid var(--line); }
+  .people.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  @media (max-width: 640px) { .people.three { grid-template-columns: 1fr; } }
+  /* the repository as a link card, in the colour of the archive step */
+  a.repo { display: block; max-width: 42rem; margin-top: 18px; padding: 14px 16px; background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--archive); text-decoration: none; }
+  a.repo:hover { border-color: var(--line-strong); border-left-color: var(--archive); }
+  a.repo .label { display: block; color: var(--archive); margin-bottom: 4px; }
+  a.repo .repo-name { font-family: var(--mono); font-weight: 500; text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 3px; }
+  a.repo:hover .repo-name { text-decoration-color: var(--brass); }
+  /* on a phone the labels inside the concept image become unreadable; show them below it instead */
+  .strip-legend { display: none; }
+  @media (max-width: 640px) {
+    .strip svg text { display: none; }
+    .strip-legend { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; margin-top: 10px; font: 500 0.62rem var(--mono); letter-spacing: 0.08em; text-transform: uppercase; }
+    .strip-legend .m { color: var(--machine); } .strip-legend .h { color: var(--brass); }
+  }
 </style>
 </head>
 <body>
@@ -140,12 +163,13 @@
     </div>
     <div class="strip">
       <svg id="wall" viewBox="0 0 1320 250" role="img" aria-label="Concept image: ten years of broadcast adverts drawn as a scattered field of small screens. A dotted line traces the scan path of the machine across the field, and three magnifying glasses mark places that are read closely."></svg>
+      <div class="strip-legend" aria-hidden="true"><span class="m">Machine scan path</span><span class="h">Three lenses · close reading</span></div>
     </div>
   </header>
 
   <main>
     <section class="prose">
-      <div class="sec-head"><span class="label">01 · The archive</span><h2>Ten years of television advertising in the BFI National Archive</h2></div>
+      <div class="sec-head"><span class="label">01 · The archive</span><h2>Television advertising in the BFI National Archive</h2></div>
       <p>The BFI National Archive has recorded television off air from UK public service broadcasters since the 1980s, including the advertisements broadcast on the main commercial public service channels. Since 2016 these recordings have been automated, to capture over 15 channels and all the adverts on the commercial services. Taken together, the adverts are likely to be one of the largest collections of their kind, and a unique historical record of consumer culture in the UK over the past decade.</p>
       <p>The adverts are spread across thousands of hours of digital video and have not yet been documented as a collection. Combining computational approaches for machine vision and AI video understanding with close critical readings in the humanities tradition, NaVVA sets out to define this material as a usable collection, to study it as a record of social and economic values in the UK, and to produce documentation that opens it to researchers in other disciplines and to wider audiences. This project will shed light on how promotional screen culture in Britain has changed over the past decade, helping us answer larger questions about how shared values and identity are shaped through media.</p>
     </section>
@@ -186,7 +210,7 @@
         <div class="person"><b>Shihan Liu</b><span>Department of Digital Humanities, King's College London</span></div>
       </div>
       <p class="label grp">Supervisors</p>
-      <div class="people">
+      <div class="people three">
         <div class="person"><b><a href="https://www.kcl.ac.uk/people/daniel-chavez-heras">Dr Daniel Chávez Heras</a></b><span>First supervisor, Department of Digital Humanities, King's College London</span></div>
         <div class="person"><b><a href="https://www.kcl.ac.uk/people/astrid-van-den-bossche">Dr Astrid Van den Bossche</a></b><span>Second supervisor, Department of Digital Humanities, King's College London</span></div>
         <div class="person"><b>Stephen McConnachie</b><span>Co-supervisor, Head of Data &amp; Digital Preservation, British Film Institute</span></div>
@@ -196,7 +220,7 @@
     <section class="prose">
       <div class="sec-head"><span class="label">05 · Status</span><h2>In progress, 2025 to 2029</h2></div>
       <p>The project began in October 2025. Work so far has concentrated on corpus construction, that is, on cutting single adverts out of the recordings and measuring how accurate the cuts are. Further code, documentation and publications will be linked from this page as they are released.</p>
-      <p><a href="https://github.com/SH-Skylar-Liu/advert-silence-boundary"><b>advert-silence-boundary</b></a> is the code and method documentation for the corpus construction step. It cuts single adverts out of broadcast recordings from silences in the soundtrack, the broadcast schedule and scene changes in the picture.</p>
+      <a class="repo" href="https://github.com/SH-Skylar-Liu/advert-silence-boundary"><span class="label">Code on GitHub ↗</span><span><span class="repo-name">advert-silence-boundary</span> is the code and method documentation for the corpus construction step. It cuts single adverts out of broadcast recordings from silences in the soundtrack, the broadcast schedule and scene changes in the picture.</span></a>
     </section>
   </main>
 
