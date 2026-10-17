@@ -134,6 +134,10 @@
   a.repo .label { display: block; color: var(--archive); margin-bottom: 4px; }
   a.repo .repo-name { font-family: var(--mono); font-weight: 500; text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 3px; }
   a.repo:hover .repo-name { text-decoration-color: var(--brass); }
+  a.repo.snapshot { border-left-color: var(--brass); }
+  a.repo.snapshot .label { color: var(--brass); }
+  a.repo.snapshot:hover { border-left-color: var(--brass); }
+  a.repo .status-note { display: block; margin-top: 7px; font-size: 0.8rem; color: var(--ink-soft); }
   /* on a phone the labels inside the concept image become unreadable; show them below it instead */
   .strip-legend { display: none; }
   @media (max-width: 640px) {
@@ -172,6 +176,7 @@
       <div class="sec-head"><span class="label">01 · The archive</span><h2>Television advertising in the BFI National Archive</h2></div>
       <p>The BFI National Archive has recorded television off air from UK public service broadcasters since the 1980s, including the advertisements broadcast on the main commercial public service channels. Since 2016 these recordings have been automated, to capture over 15 channels and all the adverts on the commercial services. Taken together, the adverts are likely to be one of the largest collections of their kind, and a unique historical record of consumer culture in the UK over the past decade.</p>
       <p>The adverts are spread across thousands of hours of digital video and have not yet been documented as a collection. Combining computational approaches for machine vision and AI video understanding with close critical readings in the humanities tradition, NaVVA sets out to define this material as a usable collection, to study it as a record of social and economic values in the UK, and to produce documentation that opens it to researchers in other disciplines and to wider audiences. This project will shed light on how promotional screen culture in Britain has changed over the past decade, helping us answer larger questions about how shared values and identity are shaped through media.</p>
+      <a class="repo snapshot" href="archive-snapshot.html"><span class="label">Archive scale · February 2026 snapshot →</span><span><span class="repo-name">Explore the advertising metadata snapshot</span> to see the scale, repetition and structure of the BFI metadata supply. These figures describe the archive and are separate from the corpus-construction results reported in the technical repository.<span class="status-note">Provisional publication pending final confirmation from the BFI.</span></span></a>
     </section>
 
     <section>

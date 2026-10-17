@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="A dated February 2026 snapshot of the scale and structure of the BFI advertising metadata supply, published provisionally as part of the NaVVA project.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src data:; font-src 'none'; connect-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>BFI Advertising Archive · February 2026 Snapshot | NaVVA</title>
+  <style>
+    :root { color-scheme: light; background: #f2eee5; }
+    html, body { margin: 0; min-width: 0; background: #f2eee5; }
+    body { overflow-x: hidden; }
+  </style>
+</head>
+<body>
+<div id="bfi-archive-snapshot" class="archive-snapshot">
+  <style>
+    #bfi-archive-snapshot {
+      --paper: #f2eee5;
+      --ink: #1b1b18;
+      --muted-ink: #626058;
+      --rule: #b8b1a3;
+      --accent: #8e2435;                                   /* deep red — reserved for KEY numbers / active only */
+      --accent-soft: color-mix(in srgb, var(--accent) 34%, var(--paper));  /* low-saturation red (P2), NOT grey */
+      --accent-softer: color-mix(in srgb, var(--accent) 16%, var(--paper));
+      --era: #597377;                                       /* second era / second categorical series */
+      --era-soft: color-mix(in srgb, var(--era) 30%, var(--paper));
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: var(--sans);
+      font-size: 16px;
+      padding: clamp(1rem, 3vw, 2.5rem);
+      width: 100%;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+
+    /* dark theme — overrides base tokens; derived color-mix tokens recompute automatically */
+    #bfi-archive-snapshot[data-theme="dark"] {
+      --paper: #191714;
+      --ink: #ece7db;
+      --muted-ink: #9d9585;
+      --rule: #45403a;
+      --accent: #df8591;
+      --era: #8bacb1;
+    }
+
+    #bfi-archive-snapshot .theme-toggle {
+      position: fixed; top: 1rem; right: 1rem; z-index: 20;
+      width: 2.4rem; height: 2.4rem; border-radius: 50%;
+      border: 1px solid var(--rule); background: var(--paper); color: var(--ink);
+      font-size: 1.05rem; line-height: 1; cursor: pointer; display: grid; place-items: center;
+    }
+    #bfi-archive-snapshot .theme-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    @media print { #bfi-archive-snapshot .theme-toggle { display: none; } }
+
+    #bfi-archive-snapshot *, #bfi-archive-snapshot *::before, #bfi-archive-snapshot *::after { box-sizing: border-box; }
+    #bfi-archive-snapshot .story-shell { max-width: 1180px; margin: 0 auto; }
+
+    #bfi-archive-snapshot .masthead {
+      display: flex; align-items: baseline; justify-content: space-between; gap: 1rem;
+      border-bottom: 1px solid var(--ink); padding-bottom: 0.65rem;
+      margin-bottom: clamp(2.5rem, 6vw, 5rem);
+      font-size: 0.78rem; letter-spacing: 0.13em; text-transform: uppercase;
+    }
+    #bfi-archive-snapshot .masthead p { margin: 0; }
+    #bfi-archive-snapshot .masthead .edition { color: var(--muted-ink); text-align: right; }
+
+    #bfi-archive-snapshot .project-nav {
+      display: flex; justify-content: space-between; gap: 1rem; align-items: baseline;
+      margin-bottom: 1.1rem; color: var(--muted-ink); font-size: 0.78rem;
+    }
+    #bfi-archive-snapshot .project-nav a { color: inherit; text-underline-offset: 0.22em; }
+    #bfi-archive-snapshot .publication-note {
+      margin: calc(-1 * clamp(1.5rem, 3vw, 2.5rem)) 0 clamp(2.5rem, 6vw, 5rem);
+      padding: 1rem 1.1rem; border: 1px solid var(--rule); border-left: 4px solid var(--accent);
+      background: var(--accent-softer); color: var(--ink); line-height: 1.5;
+    }
+    #bfi-archive-snapshot .publication-note strong {
+      display: block; margin-bottom: 0.2rem; font-size: 0.75rem;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent);
+    }
+
+    #bfi-archive-snapshot .eyebrow, #bfi-archive-snapshot .section-index,
+    #bfi-archive-snapshot .metric-label, #bfi-archive-snapshot .figure-kicker,
+    #bfi-archive-snapshot .option-tag {
+      margin: 0 0 0.7rem; color: var(--accent);
+      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+    }
+
+    #bfi-archive-snapshot h1, #bfi-archive-snapshot h2 {
+      font-family: var(--serif); font-weight: 400; letter-spacing: -0.03em; text-wrap: balance;
+    }
+    #bfi-archive-snapshot h1 { margin: 0; max-width: 13ch; font-size: clamp(2.6rem, 6.4vw, 5.6rem); line-height: 0.96; }
+    #bfi-archive-snapshot .standfirst {
+      margin: 1.8rem 0 0; max-width: 58ch; font-family: var(--serif);
+      font-size: clamp(1.1rem, 1.9vw, 1.5rem); line-height: 1.45;
+    }
+    #bfi-archive-snapshot .mean-caveat {
+      display: block; margin-top: 1.1rem; padding-left: 0.8rem; max-width: 60ch;
+      border-left: 2px solid var(--accent); color: var(--accent);
+      font-family: var(--sans); font-size: 0.82rem; line-height: 1.5;
+    }
+
+    #bfi-archive-snapshot section { padding: clamp(3.5rem, 8vw, 7rem) 0; border-bottom: 1px solid var(--rule); }
+    #bfi-archive-snapshot #hero-options { padding-top: 0; }
+
+    #bfi-archive-snapshot .hero-number, #bfi-archive-snapshot .programme-total,
+    #bfi-archive-snapshot .relationship-number {
+      display: block; font-variant-numeric: tabular-nums lining-nums; letter-spacing: -0.055em;
+    }
+    #bfi-archive-snapshot .hero-totals { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: clamp(1.5rem, 4vw, 3rem); margin-top: 2.5rem; }
+    #bfi-archive-snapshot .hero-total { border-top: 1px solid var(--ink); padding-top: 1rem; }
+    #bfi-archive-snapshot .hero-number { font-family: var(--serif); font-size: clamp(2.6rem, 5.4vw, 4.6rem); line-height: 0.9; color: var(--accent); }
+    #bfi-archive-snapshot .hero-number.alt { color: var(--muted-ink); }
+    #bfi-archive-snapshot .hero-total .metric-label { margin-top: 0.9rem; color: var(--ink); }
+    #bfi-archive-snapshot .metric-note { margin: 0.8rem 0 0; color: var(--muted-ink); max-width: 40ch; line-height: 1.5; }
+    #bfi-archive-snapshot .metric-label { color: var(--accent); }
+
+    /* ---- shared option frame ---- */
+    #bfi-archive-snapshot .option-block { margin-top: clamp(3rem, 7vw, 6rem); }
+    #bfi-archive-snapshot .option-tag { color: var(--muted-ink); }
+    #bfi-archive-snapshot .option-tag b { color: var(--accent); }
+
+    /* ==== OPTION 1 — grouped unit chart (P1.1) ==== */
+    #bfi-archive-snapshot .unit-key { margin: 0 0 1.4rem; font-size: 0.82rem; color: var(--muted-ink); }
+    #bfi-archive-snapshot .unit-key .swatch {
+      display: inline-block; width: 0.8rem; height: 0.6rem; vertical-align: -1px;
+      background: var(--accent-soft); border: 1px solid color-mix(in srgb, var(--accent) 55%, var(--paper)); margin-right: 0.3rem;
+    }
+    #bfi-archive-snapshot .decade-grid { display: flex; flex-wrap: wrap; gap: clamp(0.7rem, 1.8vw, 1.35rem); align-items: flex-end; }
+    #bfi-archive-snapshot .decade { display: grid; grid-template-columns: repeat(5, 1fr); grid-auto-rows: 1fr; gap: 3px; width: clamp(3.6rem, 8vw, 5rem); }
+    #bfi-archive-snapshot .decade.partial { opacity: 1; }
+    #bfi-archive-snapshot .unit {
+      aspect-ratio: 1 / 1; background: var(--accent-soft);
+      border: 1px solid color-mix(in srgb, var(--accent) 55%, var(--paper));
+    }
+    #bfi-archive-snapshot .unit.frac { background: transparent; position: relative; overflow: hidden; }
+    #bfi-archive-snapshot .unit.frac > i { display: block; width: 70%; height: 100%; background: var(--accent-soft); }
+    #bfi-archive-snapshot.motion-ready .unit { opacity: 0.18; transition: opacity 200ms ease; }
+    #bfi-archive-snapshot.motion-ready .unit.is-revealed { opacity: 1; }
+
+    /* ==== OPTION 2 — compression ratio (P1.3) ==== */
+    #bfi-archive-snapshot .ratio-figure { margin-top: 0.5rem; }
+    #bfi-archive-snapshot .ratio-track {
+      position: relative; width: 100%; height: clamp(3.2rem, 7vw, 4.4rem);
+      background: var(--accent-softer); border: 1px solid var(--rule); overflow: hidden;
+    }
+    #bfi-archive-snapshot .ratio-unique { position: absolute; left: 0; top: 0; bottom: 0; width: 0.74%; min-width: 3px; background: var(--accent); }
+    #bfi-archive-snapshot .ratio-scale { display: flex; justify-content: space-between; margin-top: 0.55rem; font-size: 0.78rem; color: var(--muted-ink); font-variant-numeric: tabular-nums; }
+    #bfi-archive-snapshot .ratio-callouts { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: clamp(1.5rem, 4vw, 3.5rem); margin-top: 2.2rem; padding-top: 1.1rem; border-top: 1px solid var(--rule); }
+    #bfi-archive-snapshot .ratio-big { font-family: var(--serif); font-size: clamp(2.4rem, 5vw, 4.2rem); line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; letter-spacing: -0.04em; }
+    #bfi-archive-snapshot .ratio-big.ink { color: var(--ink); }
+    #bfi-archive-snapshot .ratio-callouts p { margin: 0.5rem 0 0; max-width: 40ch; line-height: 1.5; }
+    #bfi-archive-snapshot .ratio-callouts .metric-label { color: var(--muted-ink); }
+
+    /* ---- caption shared ---- */
+    #bfi-archive-snapshot .fig-caption {
+      margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--rule);
+      max-width: 62ch; line-height: 1.55; color: var(--muted-ink);
+    }
+
+    /* ==== section heading ==== */
+    #bfi-archive-snapshot .section-heading { display: grid; grid-template-columns: minmax(10rem, 0.35fr) minmax(0, 1fr); gap: clamp(1.5rem, 4vw, 4rem); align-items: start; margin-bottom: clamp(2.5rem, 6vw, 4.5rem); }
+    #bfi-archive-snapshot .section-heading h2 { margin: 0; max-width: 15ch; font-size: clamp(2rem, 4.6vw, 4rem); line-height: 1; }
+    #bfi-archive-snapshot .section-deck { margin: 0; max-width: 53ch; font-family: var(--serif); font-size: 1.15rem; line-height: 1.5; }
+
+    /* ==== P3 — programme composition (stacked part-to-whole) ==== */
+    #bfi-archive-snapshot .programme-head { display: flex; align-items: end; justify-content: space-between; gap: 2rem; padding-bottom: 1.1rem; border-bottom: 1px solid var(--ink); }
+    #bfi-archive-snapshot .programme-total { font-family: var(--serif); font-size: clamp(2.6rem, 5.5vw, 4.8rem); line-height: 0.9; }
+    #bfi-archive-snapshot .channel-context { margin: 0; max-width: 22ch; text-align: right; color: var(--muted-ink); line-height: 1.45; }
+
+    #bfi-archive-snapshot .stack { display: flex; width: 100%; height: clamp(3rem, 6.5vw, 4rem); margin-top: 2.4rem; }
+    #bfi-archive-snapshot .stack-seg { height: 100%; display: flex; align-items: center; padding-left: 0.7rem; color: var(--paper); font-weight: 500; font-variant-numeric: tabular-nums; font-size: 0.9rem; }
+    #bfi-archive-snapshot .stack-seg.era-early { background: var(--accent); }
+    #bfi-archive-snapshot .stack-seg.era-late { background: var(--era); margin-left: 2px; }   /* 2px surface gap between fills */
+    #bfi-archive-snapshot .stack-legend { display: flex; flex-wrap: wrap; gap: 1.6rem; margin-top: 1.4rem; }
+    #bfi-archive-snapshot .stack-legend .item { display: flex; align-items: baseline; gap: 0.5rem; font-size: 0.9rem; }
+    #bfi-archive-snapshot .stack-legend .dot { width: 0.75rem; height: 0.75rem; border-radius: 2px; transform: translateY(1px); }
+    #bfi-archive-snapshot .stack-legend .dot.era-early { background: var(--accent); }
+    #bfi-archive-snapshot .stack-legend .dot.era-late { background: var(--era); }
+    #bfi-archive-snapshot .stack-legend .item span { color: var(--muted-ink); }
+    #bfi-archive-snapshot .stack-legend .item b { font-weight: 500; }
+    #bfi-archive-snapshot .period-warning { margin: 2rem 0 0; max-width: 62ch; padding-left: 1rem; border-left: 3px solid var(--accent); color: var(--muted-ink); line-height: 1.55; }
+
+    /* ==== P4 — metadata anatomy (redesigned) ==== */
+    #bfi-archive-snapshot .anatomy { --gutter: clamp(1.5rem, 4vw, 3.5rem);
+      display: grid; grid-template-columns: minmax(0,1fr) minmax(11rem, 0.62fr) minmax(0,1fr);
+      grid-template-areas: "context record identity" "taxonomy record position";
+      gap: 1.3rem var(--gutter); align-items: stretch; }
+    #bfi-archive-snapshot .record { grid-area: record; align-self: stretch; border-left: 1px solid var(--ink); border-right: 1px solid var(--ink); display: grid; place-items: center; padding: 2rem 1.2rem; text-align: center; }
+    #bfi-archive-snapshot .record-glyph { width: 5.4rem; aspect-ratio: 4/3; border: 2px solid var(--accent); display: grid; place-items: center; margin: 0 auto 1.3rem; background: var(--paper); }
+    #bfi-archive-snapshot .record-glyph::before { content: ""; width: 1.5rem; height: 1.5rem; border-radius: 50%; background: var(--accent); }
+    #bfi-archive-snapshot .record-label { margin: 0; font-weight: 500; }
+    #bfi-archive-snapshot .record-field { margin: 0.4rem 0 0; color: var(--accent); font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; }
+
+    #bfi-archive-snapshot .mgroup {
+      appearance: none; width: 100%; background: transparent; color: var(--ink);
+      border: 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); border-radius: 0;
+      padding: 1.1rem 0; text-align: left; font: inherit; cursor: pointer; position: relative;
+      transition: border-color 180ms ease, color 180ms ease, padding-left 180ms ease;
+    }
+    #bfi-archive-snapshot .mgroup:hover, #bfi-archive-snapshot .mgroup:focus-visible, #bfi-archive-snapshot .mgroup.is-selected {
+      border-color: var(--accent); color: var(--accent); padding-left: 0.7rem;
+    }
+    #bfi-archive-snapshot .mgroup:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+    #bfi-archive-snapshot .mgroup[data-area="context"] { grid-area: context; }
+    #bfi-archive-snapshot .mgroup[data-area="identity"] { grid-area: identity; }
+    #bfi-archive-snapshot .mgroup[data-area="taxonomy"] { grid-area: taxonomy; }
+    #bfi-archive-snapshot .mgroup[data-area="position"] { grid-area: position; }
+    #bfi-archive-snapshot .group-title { display: block; margin-bottom: 0.5rem; font-family: var(--serif); font-size: 1.3rem; }
+    #bfi-archive-snapshot .group-fields { display: block; line-height: 1.45; font-size: 0.82rem; color: var(--muted-ink); }
+    #bfi-archive-snapshot .mgroup.is-selected .group-fields { color: color-mix(in srgb, var(--accent) 70%, var(--ink)); }
+
+    /* wires: light up on active (P4) */
+    #bfi-archive-snapshot .mgroup::after { content: ""; position: absolute; top: 50%; width: var(--gutter); height: 2px; background: var(--rule); transition: background 180ms ease; }
+    #bfi-archive-snapshot .mgroup[data-area="context"]::after, #bfi-archive-snapshot .mgroup[data-area="taxonomy"]::after { right: calc(-1 * var(--gutter)); }
+    #bfi-archive-snapshot .mgroup[data-area="identity"]::after, #bfi-archive-snapshot .mgroup[data-area="position"]::after { left: calc(-1 * var(--gutter)); }
+    #bfi-archive-snapshot .mgroup.is-selected::after { background: var(--accent); height: 3px; }
+
+    #bfi-archive-snapshot .metadata-detail { margin: 2.2rem 0 0; min-height: 1.6em; padding-top: 0.9rem; border-top: 1px solid var(--ink); }
+    #bfi-archive-snapshot .metadata-detail .q-label { color: var(--muted-ink); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; display: block; margin-bottom: 0.4rem; }
+    #bfi-archive-snapshot .metadata-detail .q-text { color: var(--accent); font-family: var(--serif); font-size: 1.25rem; line-height: 1.4; }
+
+    /* ==== method note ==== */
+    #bfi-archive-snapshot .method-grid { display: grid; grid-template-columns: minmax(0, 0.65fr) minmax(20rem, 1.35fr); gap: clamp(2rem, 6vw, 6rem); align-items: start; }
+    #bfi-archive-snapshot .method-grid h2 { margin: 0; font-size: clamp(2rem, 4.6vw, 4rem); line-height: 1; }
+    #bfi-archive-snapshot .method-copy { font-family: var(--serif); font-size: 1.2rem; line-height: 1.55; }
+    #bfi-archive-snapshot .method-copy p { margin: 0 0 1.3rem; }
+    #bfi-archive-snapshot .method-sequence { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 2.3rem; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+    #bfi-archive-snapshot .method-step { padding: 1rem 1rem 1rem 0; position: relative; font-family: var(--sans); font-size: 0.78rem; letter-spacing: 0.04em; }
+    #bfi-archive-snapshot .method-step:not(:last-child)::after { content: "→"; position: absolute; right: 0.45rem; color: var(--accent); }
+
+    #bfi-archive-snapshot .story-footer { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2rem; padding: 1.5rem 0 0; color: var(--muted-ink); font-size: 0.74rem; line-height: 1.45; }
+    #bfi-archive-snapshot .story-footer p { margin: 0; }
+    #bfi-archive-snapshot .story-footer .credit { text-align: right; white-space: nowrap; }
+
+    #bfi-archive-snapshot .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+    @media (max-width: 760px) {
+      #bfi-archive-snapshot .section-heading, #bfi-archive-snapshot .method-grid { grid-template-columns: 1fr; }
+      #bfi-archive-snapshot .ratio-callouts { grid-template-columns: 1fr; }
+      #bfi-archive-snapshot .anatomy { grid-template-columns: 1fr 1fr; grid-template-areas: "record record" "context identity" "taxonomy position"; }
+      #bfi-archive-snapshot .mgroup::after { display: none; }
+      #bfi-archive-snapshot .record { grid-column: 1 / -1; min-height: 12rem; }
+    }
+    @media (max-width: 560px) {
+      #bfi-archive-snapshot .project-nav { padding-right: 3rem; }
+      #bfi-archive-snapshot .project-nav span { display: none; }
+    }
+    @media (max-width: 480px) {
+      #bfi-archive-snapshot { padding: 1rem; }
+      #bfi-archive-snapshot .masthead { align-items: flex-start; }
+      #bfi-archive-snapshot .programme-head { flex-direction: column; align-items: flex-start; }
+      #bfi-archive-snapshot .channel-context { text-align: left; }
+      #bfi-archive-snapshot .hero-totals { grid-template-columns: 1fr; }
+      #bfi-archive-snapshot .anatomy { grid-template-columns: 1fr; grid-template-areas: "record" "context" "identity" "taxonomy" "position"; }
+      #bfi-archive-snapshot .method-sequence { grid-template-columns: 1fr 1fr; }
+      #bfi-archive-snapshot .story-footer { grid-template-columns: 1fr; }
+      #bfi-archive-snapshot .story-footer .credit { text-align: left; }
+      #bfi-archive-snapshot .stack { flex-direction: column; height: auto; }
+      #bfi-archive-snapshot .stack-seg { height: 2.6rem; margin-left: 0 !important; }
+      #bfi-archive-snapshot .stack-seg.era-late { margin-top: 2px; }
+    }
+    @media (max-width: 320px) {
+      #bfi-archive-snapshot { padding: 0.75rem; }
+      #bfi-archive-snapshot .masthead { display: grid; }
+      #bfi-archive-snapshot .masthead .edition { text-align: left; }
+      #bfi-archive-snapshot .method-sequence { grid-template-columns: 1fr; }
+      #bfi-archive-snapshot .method-step:not(:last-child)::after { content: "↓"; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #bfi-archive-snapshot *, #bfi-archive-snapshot *::before, #bfi-archive-snapshot *::after {
+        transition-duration: 0.01ms !important; animation-duration: 0.01ms !important;
+      }
+      #bfi-archive-snapshot .unit { opacity: 1 !important; }
+    }
+  </style>
+
+  <button type="button" class="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false" title="Toggle dark mode">🌙</button>
+  <div class="story-shell">
+    <nav class="project-nav" aria-label="Project navigation">
+      <a href="./">← NaVVA project</a>
+      <span>Archive snapshot · February 2026</span>
+    </nav>
+    <header class="masthead" aria-label="Snapshot identity">
+      <p>BFI National Archive · Advertising metadata</p>
+      <p class="edition">Dated snapshot · February 2026</p>
+    </header>
+
+    <aside class="publication-note" aria-label="Publication status">
+      <strong>Provisional publication</strong>
+      Advert-level figures were supplied by Stephen McConnachie at the BFI in February 2026. This page is available provisionally while final permission for public citation is confirmed; figures may be revised or withdrawn.
+    </aside>
+
+    <main>
+      <section id="hero-options" aria-labelledby="snapshot-title">
+        <p class="eyebrow">A national broadcast record</p>
+        <h1 id="snapshot-title">Britain’s advertising archive, at broadcast scale.</h1>
+        <p class="standfirst">
+          Since January 2016, the BFI’s metadata supply records 18.44 million advert broadcasts
+          representing 136,929 unique adverts—an average of 134.7 screenings per advert.
+          <span class="mean-caveat">134.7 is an arithmetic mean across the full metadata supply. Without a distribution or median, it should not be read as a typical advert.</span>
+        </p>
+
+        <div class="hero-totals">
+          <div class="hero-total" aria-label="Distinct adverts">
+            <span class="hero-number count-number" data-final="136929" data-formatted="136,929">136,929</span>
+            <p class="metric-label">distinct adverts</p>
+            <p class="metric-note">Unique creatives (CID Works), deduplicated from every broadcast in the supply.</p>
+          </div>
+          <div class="hero-total" aria-label="Total advert broadcasts">
+            <span class="hero-number alt count-number" data-final="18441575" data-formatted="18,441,575">18,441,575</span>
+            <p class="metric-label">advert broadcasts</p>
+            <p class="metric-note">Every supplied broadcast record, including repeat screenings, Jan 2016 – Feb 2026.</p>
+          </div>
+        </div>
+
+        <!-- ===================== OPTION 1 ===================== -->
+        <figure class="option-block" aria-labelledby="opt1-title">
+          <p class="option-tag">The repeat relationship, one advert at a time</p>
+          <p class="figure-kicker">One creative, many broadcasts</p>
+          <p class="unit-key"><span class="swatch"></span>each square = 1 broadcast&nbsp;·&nbsp;each block = 10&nbsp;·&nbsp;the average unique advert = 134.7 broadcasts</p>
+          <div class="decade-grid" id="unit-grid" aria-hidden="true"></div>
+          <figcaption id="opt1-title" class="fig-caption">
+            <span class="relationship-number count-number" data-final="134.7" data-formatted="134.7" style="font-family:var(--serif);font-size:clamp(2rem,4vw,3.2rem);color:var(--accent);">134.7</span>
+            screenings per unique advert · archive-wide mean. Grouping the units in tens makes the count legible;
+            the final part-block is 0.7 of the mean, not a partial broadcast.
+          </figcaption>
+          <p class="sr-only">Option 1 renders the archive-wide mean of 134.7 broadcasts per unique advert as 134 countable unit squares grouped in tens, plus a final part-block representing the fractional 0.7 of the mean.</p>
+        </figure>
+
+        <!-- ===================== OPTION 2 ===================== -->
+        <figure class="option-block" aria-labelledby="opt2-title">
+          <p class="option-tag">The same relationship, across the whole archive</p>
+          <p class="figure-kicker">136,929 distinct adverts inside 18.44 million broadcasts</p>
+          <div class="ratio-figure">
+            <div class="ratio-track" role="img" aria-label="A full-width bar represents 18,441,575 broadcasts; a highlighted sliver at the far left, 0.74 percent of the width, represents the 136,929 distinct adverts within them.">
+              <div class="ratio-unique"></div>
+            </div>
+            <div class="ratio-scale">
+              <span>136,929 distinct adverts (0.74%)</span>
+              <span>18,441,575 broadcasts (100%)</span>
+            </div>
+          </div>
+          <figcaption id="opt2-title" class="ratio-callouts">
+            <div>
+              <span class="ratio-big count-number" data-final="136929" data-formatted="136,929">136,929</span>
+              <p class="metric-label">distinct adverts — the researchable corpus</p>
+              <p>Just 0.74% of all broadcasts. Most of the record is repetition: the same creatives, re-aired across channels and dayparts.</p>
+            </div>
+            <div>
+              <span class="ratio-big ink">1 : 135</span>
+              <p class="metric-label">distinct advert to broadcasts</p>
+              <p>The archive’s real shape is a deduplication problem—collapsing 18.44M Manifestation-level airings to 136,929 Work-level creatives.</p>
+            </div>
+          </figcaption>
+          <p class="sr-only">Option 2 shows that the 136,929 distinct adverts are only 0.74 percent of the 18,441,575 broadcasts, a ratio of roughly one distinct advert to every 135 broadcasts.</p>
+        </figure>
+      </section>
+
+      <section id="programme-record" aria-labelledby="programme-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-index">01 · Programme record</p>
+            <h2 id="programme-title">A collection built in two eras.</h2>
+          </div>
+          <p class="section-deck">The advert metadata sits alongside more than one million preserved television programmes containing advertising. The programme counts are a separate measure from individual advert broadcasts.</p>
+        </div>
+
+        <figure aria-labelledby="programme-figure-title">
+          <div class="programme-head">
+            <div>
+              <p class="figure-kicker">Programmes containing adverts</p>
+              <span class="programme-total">1,095,805</span>
+            </div>
+            <p class="channel-context">Captured across <strong>8 commercial channels</strong> within a wider 18-channel television record.</p>
+          </div>
+
+          <div class="stack" role="img" aria-label="A single bar of 1,095,805 programmes, split into two segments: 537,037 from 2015 to 2020 and 558,768 from 2020 to the present.">
+            <div class="stack-seg era-early" style="width:49.007%">537,037</div>
+            <div class="stack-seg era-late" style="width:50.993%">558,768</div>
+          </div>
+          <div class="stack-legend">
+            <span class="item"><span class="dot era-early"></span><b>2015–2020</b>&nbsp;<span>earlier collection · 49%</span></span>
+            <span class="item"><span class="dot era-late"></span><b>2020–present</b>&nbsp;<span>continuing collection · 51%</span></span>
+          </div>
+
+          <figcaption id="programme-figure-title" class="period-warning">
+            This shows the two eras as parts of one collection, not a comparison of magnitudes. The periods differ in duration and accessibility, so this is not a growth-rate chart.
+          </figcaption>
+          <p class="sr-only">The two segments are close to equal because each era contributes roughly half of the combined total; the segment lengths are shares of one collection and do not represent a rate of change.</p>
+        </figure>
+      </section>
+
+      <section id="metadata-visible" aria-labelledby="metadata-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-index">02 · Metadata anatomy</p>
+            <h2 id="metadata-title">What one record makes answerable.</h2>
+          </div>
+          <p class="section-deck">A unique identifier anchors each advert to its broadcast setting, commercial relationships, category hierarchy and position within the break. Select a field group to see the kind of research question it unlocks.</p>
+        </div>
+
+        <div class="anatomy">
+          <div class="record" aria-label="Central abstract advert record">
+            <div>
+              <div class="record-glyph" aria-hidden="true"></div>
+              <p class="record-label">Abstract advert record</p>
+              <p class="record-field">unique advert ID</p>
+            </div>
+          </div>
+
+          <button type="button" class="mgroup is-selected" data-area="context" aria-pressed="true"
+            data-q="Which programmes did an advertiser cluster around—and did that placement shift across the decade?">
+            <span class="group-title">Broadcast context</span>
+            <span class="group-fields">channel · date · start time · programme before · programme after</span>
+          </button>
+
+          <button type="button" class="mgroup" data-area="identity" aria-pressed="false"
+            data-q="How concentrated is the industry—how many brands trace back to a handful of holding companies?">
+            <span class="group-title">Commercial identity</span>
+            <span class="group-fields">advertiser · brand · agency · holding company</span>
+          </button>
+
+          <button type="button" class="mgroup" data-area="taxonomy" aria-pressed="false"
+            data-q="Does a sector’s share look different measured at broad versus fine-grained category levels?">
+            <span class="group-title">Category taxonomy</span>
+            <span class="group-fields">major · mid · minor</span>
+          </button>
+
+          <button type="button" class="mgroup" data-area="position" aria-pressed="false"
+            data-q="Do particular sectors pay more often for the coveted first-in-break slot?">
+            <span class="group-title">Break position</span>
+            <span class="group-fields">first position · position in break</span>
+          </button>
+        </div>
+
+        <p class="metadata-detail" aria-live="polite">
+          <span class="q-label">Research question this unlocks</span>
+          <span class="q-text">Which programmes did an advertiser cluster around—and did that placement shift across the decade?</span>
+        </p>
+      </section>
+
+      <section id="archive-to-corpus" aria-labelledby="method-title">
+        <div class="method-grid">
+          <div>
+            <p class="section-index">03 · Method note</p>
+            <h2 id="method-title">From archive to research corpus.</h2>
+          </div>
+          <div class="method-copy">
+            <p>These figures describe the metadata supply and the preserved programme collection. They are not model outputs and were not produced by boundary detection.</p>
+            <p>Continuous broadcast recordings still require identification, segmentation, validation and provenance tracking before they become a research corpus of individual advert clips.</p>
+            <div class="method-sequence" aria-label="Archive-to-corpus workflow">
+              <span class="method-step">Identify</span>
+              <span class="method-step">Segment</span>
+              <span class="method-step">Validate</span>
+              <span class="method-step">Document provenance</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="story-footer">
+      <p>Internal working snapshot. Advert-level figures: Stephen McConnachie, BFI, February 2026. Exact email date and permission must be confirmed before public citation. Published provisionally within NaVVA pending that confirmation; these figures describe the metadata supply, not boundary-detection output.</p>
+      <p class="credit">Data story · Shihan Liu</p>
+    </footer>
+  </div>
+
+  <script>
+    (() => {
+      const root = document.getElementById("bfi-archive-snapshot");
+      if (!root) return;
+      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      // ---- build Option 1 grouped units: 134 full + 0.7 fractional ----
+      const grid = root.querySelector("#unit-grid");
+      if (grid) {
+        const FULL = 134;
+        let made = 0;
+        const addBlock = (n, withFrac) => {
+          const block = document.createElement("div");
+          block.className = "decade" + (withFrac ? " partial" : "");
+          for (let i = 0; i < n; i++) {
+            const u = document.createElement("span"); u.className = "unit"; block.appendChild(u);
+          }
+          if (withFrac) {
+            const f = document.createElement("span"); f.className = "unit frac";
+            f.innerHTML = "<i></i>"; block.appendChild(f);
+          }
+          grid.appendChild(block);
+        };
+        while (made + 10 <= FULL) { addBlock(10, false); made += 10; }   // 13 blocks of 10
+        addBlock(FULL - made, true);                                     // final 4 + 0.7
+      }
+
+      const units = Array.from(root.querySelectorAll(".unit"));
+      const numbers = Array.from(root.querySelectorAll(".count-number"));
+      let revealed = false;
+
+      const fmt = (v, formatted) => formatted.includes(".") ? v.toFixed(2).replace(/0$/,"").replace(/\.$/,"") : Math.round(v).toLocaleString("en-GB");
+
+      const reveal = () => {
+        if (revealed) return; revealed = true;
+        if (reduced) { units.forEach(u => u.classList.add("is-revealed")); return; }
+        numbers.forEach(n => {
+          const final = Number(n.dataset.final);
+          const formatted = n.dataset.formatted || String(final);
+          const start = performance.now(), dur = 850;
+          const tick = now => {
+            const p = Math.min((now - start) / dur, 1), e = 1 - Math.pow(1 - p, 3);
+            n.textContent = fmt(final * e, formatted);
+            if (p < 1) requestAnimationFrame(tick); else n.textContent = formatted;
+          };
+          requestAnimationFrame(tick);
+        });
+        units.forEach((u, i) => setTimeout(() => u.classList.add("is-revealed"), i * 6));
+      };
+
+      if (!reduced) root.classList.add("motion-ready");
+      if ("IntersectionObserver" in window && !reduced) {
+        const obs = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { reveal(); obs.disconnect(); } }, { threshold: 0.12 });
+        obs.observe(root.querySelector("#hero-options"));
+      } else { reveal(); }
+
+      // ---- metadata groups: reveal a research QUESTION + light the wire ----
+      const groups = Array.from(root.querySelectorAll(".mgroup"));
+      const qText = root.querySelector(".metadata-detail .q-text");
+      const activate = g => {
+        groups.forEach(c => { const s = c === g; c.classList.toggle("is-selected", s); c.setAttribute("aria-pressed", String(s)); });
+        if (qText) qText.textContent = g.dataset.q || "";
+      };
+      groups.forEach(g => {
+        g.addEventListener("click", () => activate(g));
+        g.addEventListener("focus", () => activate(g));
+        g.addEventListener("mouseenter", () => activate(g));
+      });
+
+      // ---- light / dark theme toggle ----
+      const toggle = root.querySelector(".theme-toggle");
+      if (toggle) {
+        toggle.addEventListener("click", () => {
+          const dark = root.getAttribute("data-theme") === "dark";
+          root.setAttribute("data-theme", dark ? "light" : "dark");
+          toggle.setAttribute("aria-pressed", String(!dark));
+          toggle.setAttribute("aria-label", dark ? "Switch to dark mode" : "Switch to light mode");
+          toggle.textContent = dark ? "🌙" : "☀";
+        });
+      }
+    })();
+  </script>
+</div>
+</body>
+</html>
